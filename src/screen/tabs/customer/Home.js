@@ -122,9 +122,13 @@ const Home = ({navigation}) => {
           />
         </View>
         <OfferSwiper />
-        <Text style={[commonStyles.HeaderText, {marginLeft: wp(17)}]}>
-          our Product
-        </Text>
+        <TouchableOpacity
+          style={{alignSelf: 'flex-start'}}
+          onPress={() => navigation.navigate('OurProduct')}>
+          <Text style={[commonStyles.HeaderText, {marginLeft: wp(17)}]}>
+            our Product
+          </Text>
+        </TouchableOpacity>
         <ProductList />
       </ScrollView>
     </SafeAreaView>

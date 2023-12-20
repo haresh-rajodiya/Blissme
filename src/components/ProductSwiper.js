@@ -1,12 +1,12 @@
 import React, {useState, useRef} from 'react';
 import {View, Text, StyleSheet, Image, ImageBackground} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
-import {swiperData} from '../helper/dummyData';
+import {ProductSwiperData, swiperData} from '../helper/dummyData';
 import {fs, hp, wp} from '../helper/helper';
 import {colors} from '../helper';
 
-const Swiper = () => {
-  const [data, setData] = useState(swiperData);
+const ProductSwiper = () => {
+  const [data, setData] = useState(ProductSwiperData);
   const renderItem = ({item}) => {
     return (
       <View style={styles.imageViewStyle}>
@@ -18,7 +18,6 @@ const Swiper = () => {
               {item.title}
               <Text style={styles.offer}>{item.title1}</Text>
             </Text>
-            <Text style={styles.title}>{item.text}</Text>
           </View>
         </ImageBackground>
       </View>
@@ -51,8 +50,8 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   offer: {
-    fontSize: fs(50),
-    fontWeight: '900',
+    fontSize: fs(20),
+    fontWeight: '500',
     color: colors.pink,
   },
   imageBackgroundStyle: {
@@ -69,4 +68,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Swiper;
+export default ProductSwiper;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   TouchableOpacity,
   Image,
@@ -11,6 +11,7 @@ import {hp, wp} from '../helper/helper';
 import {colors} from '../helper';
 
 export default Radio = ({value, changeValue, leftImage, text}) => {
+  const [selectedOption, setSelectedOption] = useState(null);
   return (
     <TouchableOpacity style={radioStyle.btn} onPress={changeValue}>
       {/* {value ? <Image source={icons.Ellipse} style={radioStyle.tick} /> : null} */}

@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
 import {hp, wp} from '../../../helper/helper';
 import {commonStyles} from '../../../helper/commonStyle';
 import Header from '../../../components/Header';
@@ -12,6 +18,24 @@ import AddToCartButton from '../../../components/AddToCartButton';
 
 const PaymentMethod = ({navigation}) => {
   const [radioValue, setRadioValue] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const handleOptionSelect = option => {
+    setSelectedOption(option);
+  };
+  const renderRadioOptions = options => {
+    return options.map(option => (
+      <TouchableOpacity
+        key={option}
+        style={[
+          styles.radioButton,
+          selectedOption === option && styles.selectedRadioButton,
+        ]}
+        onPress={() => handleOptionSelect(option)}>
+        <Text>{option}</Text>
+      </TouchableOpacity>
+    ));
+  };
+  const radioOptions = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
 
   // let razorpayKeyId = RAZORPAY_KEY_ID;
   // let razorpayKeySecret = RAZORPAY_KEY_SECRET;
@@ -78,9 +102,12 @@ const PaymentMethod = ({navigation}) => {
         title={'Make Payment'}
         value={'1492'}
         text={'Total'}
-        cart={handlePayment}
+        // cart={handlePayment}
         // cart={() => navigation.navigate('PaymentMethod')}
       />
+      <View style={{marginTop: hp(31)}}>
+        <View>{renderRadioOptions(radioOptions)}</View>
+      </View>
     </SafeAreaView>
   );
   // })
@@ -91,6 +118,61 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.white,
   },
+  radioButton: {
+    borderWidth: 1,
+    borderColor: '#000',
+    borderRadius: 12,
+    padding: 10,
+    marginVertical: 5,
+  },
+  selectedRadioButton: {
+    backgroundColor: '#F93A8B',
+  },
 });
 
 export default PaymentMethod;
+
+// import React, { useState } from 'react';
+// import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+// const CustomRadioButton = () => {
+//   const [selectedOption, setSelectedOption] = useState(null);
+//   const handleOptionSelect = (option) => {
+//     setSelectedOption(option);
+//   };
+//   const renderRadioOptions = (options) => {
+//     return options.map((option) => (
+//       <TouchableOpacity
+//         key={option}
+//         style={[
+//           styles.radioButton,
+//           selectedOption === option && styles.selectedRadioButton,
+//         ]}
+//         onPress={() => handleOptionSelect(option)}
+//       >
+//         <Text>{option}</Text>
+//       </TouchableOpacity>
+//     ));
+//   };
+//   const radioOptions = ['Option 1', 'Option 2', 'Option 3'];
+//   return (
+//     <View>
+//       <View>
+//         <Text>Choose an option:</Text>
+//       </View>
+//       <View>{renderRadioOptions(radioOptions)}</View>
+//     </View>
+//   );
+// };
+// const styles = StyleSheet.create({
+//   radioButton: {
+//     borderWidth: 1,
+//     borderColor: '#000',
+//     borderRadius: 12,
+//     padding: 10,
+//     marginVertical: 5,
+//   },
+//   selectedRadioButton: {
+//     backgroundColor: '#4caf50',
+//   },
+// });
+// export default CustomRadioButton;

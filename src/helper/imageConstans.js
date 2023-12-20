@@ -64,4 +64,5 @@ export const icons = {
   done: require('../../assets/icon/done.png'),
   paypal: require('../../assets/image/Paypal.png'),
   stripe: require('../../assets/image/stripe.png'),
+  deleteRed: require('../../assets/icon/deleteRed.png'),
 };

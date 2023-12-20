@@ -12,6 +12,7 @@ import {icons} from '../helper/imageConstans';
 import TopSalon from '../screen/tabs/customer/TopSalon';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import FaceMassage from '../screen/tabs/customer/FaceMassage';
+import OurProduct from '../screen/tabs/customer/OurProduct';
 
 const Bottom = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -22,6 +23,7 @@ const HomeTab = () => {
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="TopSalon" component={TopSalon} />
       <Stack.Screen name="FaceMassage" component={FaceMassage} />
+      <Stack.Screen name="OurProduct" component={OurProduct} />
     </Stack.Navigator>
   );
 };

@@ -18,7 +18,6 @@ const ProductList = () => {
           style={{
             height: hp(131),
             width: wp(188),
-            backgroundColor: 'red',
           }}
           source={item['image']}>
           {/* <Text style={{fontSize: 15, fontWeight: '500'}}>{item.title}</Text>

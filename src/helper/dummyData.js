@@ -21,6 +21,24 @@ export const swiperData = [
   },
 ];
 
+export const ProductSwiperData = [
+  {
+    title: 'massage',
+    title1: ' Oil',
+    image: icons.massage,
+  },
+  {
+    title: 'Cream',
+    title1: 'bath',
+    image: icons.saloon,
+  },
+  {
+    title: 'Body',
+    title1: ' Wash',
+    image: icons.sap,
+  },
+];
+
 export const offerSwiperData = [
   {
     title: 'Get',
@@ -427,6 +445,84 @@ export const AppointmentCartList = [
     title: 'Le Spa by Jan',
     rating: ' 4.5',
     time: ' 09:00Am - 10:00Am ; Mar 21,2023',
+    stylist: 'stylists : Laetitiya Yu',
     image: icons.leSpaByJan,
+  },
+  // {
+  //   title: 'Le Spa by Jan',
+  //   rating: ' 4.5',
+  //   time: ' 09:00Am - 10:00Am ; Mar 21,2023',
+  //   stylist: 'Laetitiya Yu',
+  //   image: icons.leSpaByJan,
+  // },
+];
+
+export const PreviousAppointmentList = [
+  {
+    title: 'Le Spa by Jan',
+    rating: ' 4.5',
+    time: ' 09:00Am - 10:00Am ; Mar 21,2023',
+    stylist: 'stylists : Laetitiya Yu',
+    image: icons.leSpaByJan,
+  },
+  {
+    title: 'Le Spa by Jan',
+    rating: ' 4.5',
+    time: ' 09:00Am - 10:00Am ; Mar 21,2023',
+    stylist: 'Laetitiya Yu',
+    image: icons.leSpaByJan,
+  },
+  {
+    title: 'Le Spa by Jan',
+    rating: ' 4.5',
+    time: ' 09:00Am - 10:00Am ; Mar 21,2023',
+    stylist: 'stylists : Laetitiya Yu',
+    image: icons.leSpaByJan,
+  },
+  {
+    title: 'Le Spa by Jan',
+    rating: ' 4.5',
+    time: ' 09:00Am - 10:00Am ; Mar 21,2023',
+    stylist: 'Laetitiya Yu',
+    image: icons.leSpaByJan,
+  },
+];
+
+export const OurProductListData = [
+  {
+    title: 'Forming Shower Gel',
+    name: 'Le spa by Jan',
+    distance: '2.5 Km',
+    image: icons.ShowerGel,
+  },
+  {
+    title: 'Forming Shower Gel Set',
+    name: 'Sala Raj Thai Traditional Massage',
+    distance: '2.4 Km',
+    image: icons.ShowerGelSet,
+  },
+  {
+    title: 'Exfoliating Body Scrub Set',
+    name: 'Tony & Spa',
+    distance: '3 Km',
+    image: icons.BodyScrubSet,
+  },
+  {
+    title: 'Forming Shower Gel',
+    name: 'Le spa by Jan',
+    distance: '2.5 Km',
+    image: icons.ShowerGel,
+  },
+  {
+    title: 'Forming Shower Gel Set',
+    name: 'Sala Raj Thai Traditional Massage',
+    distance: '2.4 Km',
+    image: icons.ShowerGelSet,
+  },
+  {
+    title: 'Exfoliating Body Scrub Set',
+    name: 'Tony & Spa',
+    distance: '3 Km',
+    image: icons.BodyScrubSet,
   },
 ];
