@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -10,6 +10,7 @@ import {
 import {fs, hp, wp} from '../helper/helper';
 import {icons} from '../helper/imageConstans';
 import {commonStyles} from '../helper/commonStyle';
+import {colors} from '../helper';
 
 const Item = ({item, onPress}) => {
   return (
@@ -48,23 +49,43 @@ const Item = ({item, onPress}) => {
           marginTop: hp(5),
           backgroundColor: '#EEE',
         }}></View>
-      <TouchableOpacity style={styles.deleteView}>
-        <Image
-          style={{height: hp(24), width: wp(24)}}
-          source={icons.deleteRed}
-        />
-        <Text style={{fontSize: fs(11), color: '#DE0606'}}>
-          {'Cancel Booking'}
+      <TouchableOpacity>
+        <Text style={[commonStyles.HeaderText, {marginTop: hp(10)}]}>
+          {'Price Details'}
         </Text>
+        <View style={[styles.textView]}>
+          <Text style={styles.text}>{'Skin Radiance Facial'}</Text>
+          <Text style={styles.text1}>{'HK$ 588'}</Text>
+        </View>
+        <View style={[styles.textView]}>
+          <Text style={[styles.text, {width: wp(214)}]}>
+            {
+              'Oily, Combination, Sensitive or Acne Prone skin Ainhoa Vitaminal Facial'
+            }
+          </Text>
+          <Text style={styles.text1}>{'HK$ 888'}</Text>
+        </View>
+        <View style={[styles.textView]}>
+          <Text style={styles.text}>{'Total '}</Text>
+          <Text style={styles.text1}>{'HK$ 1,492'}</Text>
+        </View>
+        <View style={[styles.textView]}>
+          <Text style={styles.text}>{'Paid on '}</Text>
+          <Text style={styles.text1}>{'Paypal'}</Text>
+        </View>
+        <View style={[styles.textView]}>
+          <Text style={styles.text}>{'Order id'}</Text>
+          <Text style={styles.text1}>{'#12345695238'}</Text>
+        </View>
       </TouchableOpacity>
     </View>
   );
 };
 
-const UpcomingAppointment = ({DATA, onPress}) => {
+const OrderAppointmentModal = ({DATA, onPress}) => {
   const [data, setData] = useState(DATA);
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {elevation: 1}]}>
       <FlatList
         data={data}
         renderItem={({item}) => <Item item={item} onPress={onPress} />}
@@ -77,29 +98,35 @@ const UpcomingAppointment = ({DATA, onPress}) => {
 const styles = StyleSheet.create({
   list: {
     flexDirection: 'row',
-    //height: hp(200),
-    marginVertical: hp(24),
-    marginHorizontal: wp(8),
-    // justifyContent: 'space-between',
+    marginVertical: hp(12),
   },
   imageView: {
     height: hp(95),
     width: wp(96),
     borderRadius: 5,
   },
-  deleteView: {
+  textView: {
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: hp(56),
-    alignSelf: 'center',
+    justifyContent: 'space-between',
+    marginTop: hp(20),
   },
   container: {
     marginHorizontal: hp(4),
-    elevation: 5,
     shadowColor: '#000',
     marginTop: hp(12),
+    height: hp(450),
+    marginHorizontal: wp(8),
+  },
+  text: {
+    fontSize: fs(14),
+    fontWeight: '400',
+    color: colors.black,
+  },
+  text1: {
+    fontSize: fs(15),
+    fontWeight: '500',
+    color: colors.black,
   },
 });
 
-export default UpcomingAppointment;
+export default OrderAppointmentModal;

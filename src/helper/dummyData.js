@@ -526,3 +526,12 @@ export const OurProductListData = [
     image: icons.BodyScrubSet,
   },
 ];
+
+export const OrderProductData = [
+  {
+    title: 'Kerastase Elixir',
+    quantity: '3',
+    date: 'Mar 21,2021',
+    image: icons.OilMask,
+  },
+];

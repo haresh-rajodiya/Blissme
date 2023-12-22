@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -21,25 +21,23 @@ const Item = ({item, onPress}) => {
         <View style={{marginLeft: wp(19), width: '65%'}}>
           <Text style={commonStyles.HeaderText}>{item?.title}</Text>
           <View style={{flexDirection: 'row', marginTop: hp(3)}}>
-            <Image
-              style={{height: hp(14), width: wp(15)}}
-              source={icons.star}
-            />
-            <Text style={commonStyles.CommonText}>{item?.rating}</Text>
+            <Text style={commonStyles.CommonText}>
+              {'Quantity :  '}{' '}
+              <Text style={commonStyles.CommonText}>{item?.quantity}</Text>
+            </Text>
           </View>
           <View
             style={{
               flexDirection: 'row',
               marginTop: hp(8),
-              // alignItems: 'center',
             }}>
             <Image
               style={{height: hp(14), width: wp(15), marginTop: hp(3)}}
               source={icons.toDay}
             />
-            <Text>{item?.time}</Text>
+            <Text>{'Ordered on '}</Text>
+            <Text>{item?.date}</Text>
           </View>
-          <Text style={{marginTop: hp(4)}}>{item?.stylist}</Text>
         </View>
       </TouchableOpacity>
       <View
@@ -61,7 +59,7 @@ const Item = ({item, onPress}) => {
   );
 };
 
-const UpcomingAppointment = ({DATA, onPress}) => {
+const OrderProductItem = ({DATA, onPress}) => {
   const [data, setData] = useState(DATA);
   return (
     <View style={styles.container}>
@@ -102,4 +100,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UpcomingAppointment;
+export default OrderProductItem;
