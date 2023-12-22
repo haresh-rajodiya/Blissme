@@ -7,7 +7,7 @@ import {icons} from '../../../helper/imageConstans';
 import {hp, wp} from '../../../helper/helper';
 import OrderTabBar from '../../../components/OrderTabbar';
 
-const Orders = () => {
+const Orders = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <Header

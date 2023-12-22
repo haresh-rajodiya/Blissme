@@ -41,9 +41,8 @@ const OrderAppointment = () => {
         backdropOpacity={1}
         backdropColor="white"
         coverScreen={false}
-        onBackdropPress={() => setModalVisible(false)}
-        style={{}}>
-        <View style={{height: '90%'}}>
+        onBackdropPress={() => setModalVisible(false)}>
+        <View style={{height: '95%'}}>
           <OrderAppointmentModal DATA={AppointmentCartList} />
         </View>
       </Modal>

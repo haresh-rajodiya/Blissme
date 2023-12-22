@@ -15,7 +15,7 @@ import {commonStyles} from '../../../helper/commonStyle';
 import NearByShop from '../../../components/NearByShop';
 import {TopSalonList} from '../../../helper/dummyData';
 
-const NearbyStore = () => {
+const NearbyStore = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <Header

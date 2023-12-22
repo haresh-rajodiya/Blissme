@@ -109,6 +109,7 @@ const OnBoarding = ({navigation}) => {
         onPress={() => navigation.navigate('DrawerNavigator')}
         style={hp(15)}
         title={'Continue'}
+        color={colors.black}
       />
     </SafeAreaView>
   );

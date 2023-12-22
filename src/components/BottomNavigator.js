@@ -13,6 +13,7 @@ import TopSalon from '../screen/tabs/customer/TopSalon';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import FaceMassage from '../screen/tabs/customer/FaceMassage';
 import OurProduct from '../screen/tabs/customer/OurProduct';
+import SetLocation from '../screen/tabs/customer/SetLocation';
 
 const Bottom = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -24,6 +25,14 @@ const HomeTab = () => {
       <Stack.Screen name="TopSalon" component={TopSalon} />
       <Stack.Screen name="FaceMassage" component={FaceMassage} />
       <Stack.Screen name="OurProduct" component={OurProduct} />
+    </Stack.Navigator>
+  );
+};
+const ProfileTab = () => {
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="SetLocation" component={SetLocation} />
     </Stack.Navigator>
   );
 };
@@ -103,8 +112,8 @@ const BottomNavigator = () => {
           }}
         />
         <Bottom.Screen
-          name="Profile"
-          component={Profile}
+          name="ProfileTab"
+          component={ProfileTab}
           options={{
             headerShown: false,
             tabBarActiveTintColor: '#F93A8B',

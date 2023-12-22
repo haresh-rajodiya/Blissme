@@ -1,20 +1,177 @@
-import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  FlatList,
+} from 'react-native';
+import {fs, hp, wp} from '../helper/helper';
+import {icons} from '../helper/imageConstans';
+import {commonStyles} from '../helper/commonStyle';
+import {colors} from '../helper';
 
-const OrderProductModal = () => {
+const Item = ({item, onPress}) => {
   return (
     <View style={styles.container}>
-      <Text>OrderProductModal</Text>
+      <TouchableOpacity style={styles.list} onPress={onPress}>
+        <View>
+          <Image style={styles.imageView} source={item?.image} />
+        </View>
+        <View style={{marginLeft: wp(19), width: '65%'}}>
+          <Text style={[commonStyles.HeaderText, {width: wp(245)}]}>
+            {item?.title}
+          </Text>
+          <Text>
+            {'Quantity : '}
+            <Text>{item?.quantity}</Text>
+          </Text>
+        </View>
+      </TouchableOpacity>
+      {/* <View
+        style={{
+          flexDirection: 'row',
+          marginTop: hp(8),
+          // alignItems: 'center',
+        }}>
+        <Image
+          style={{height: hp(14), width: wp(15), marginTop: hp(3)}}
+          source={icons.toDay}
+        />
+        <Text>{item?.time}</Text>
+      </View>
+      <View
+        style={{
+          height: hp(1),
+          marginTop: hp(5),
+          backgroundColor: '#EEE',
+        }}></View>
+      <TouchableOpacity>
+        <Text style={[commonStyles.HeaderText, {marginTop: hp(10)}]}>
+          {'Price Details'}
+        </Text>
+        <View style={[styles.textView]}>
+          <Text style={styles.text}>{'Skin Radiance Facial'}</Text>
+          <Text style={styles.text1}>{'HK$ 588'}</Text>
+        </View>
+        <View style={[styles.textView]}>
+          <Text style={[styles.text, {width: wp(214)}]}>
+            {
+              'Oily, Combination, Sensitive or Acne Prone skin Ainhoa Vitaminal Facial'
+            }
+          </Text>
+          <Text style={styles.text1}>{'HK$ 888'}</Text>
+        </View>
+        <View style={[styles.textView]}>
+          <Text style={styles.text}>{'Total '}</Text>
+          <Text style={styles.text1}>{'HK$ 1,492'}</Text>
+        </View>
+        <View style={[styles.textView]}>
+          <Text style={styles.text}>{'Paid on '}</Text>
+          <Text style={styles.text1}>{'Paypal'}</Text>
+        </View>
+        <View style={[styles.textView]}>
+          <Text style={styles.text}>{'Order id'}</Text>
+          <Text style={styles.text1}>{'#12345695238'}</Text>
+        </View>
+      </TouchableOpacity> */}
+    </View>
+  );
+};
+
+const OrderProductModal = ({DATA, onPress}) => {
+  const [data, setData] = useState(DATA);
+  return (
+    <View style={[styles.container, {elevation: 1}]}>
+      <FlatList
+        data={data}
+        renderItem={({item}) => <Item item={item} onPress={onPress} />}
+        keyExtractor={item => item.id}
+      />
+      <View
+        style={{
+          flexDirection: 'row',
+          marginTop: hp(8),
+          justifyContent: 'flex-end',
+          // alignItems: 'center',
+        }}>
+        <Image
+          style={{height: hp(14), width: wp(15), marginTop: hp(3)}}
+          source={icons.toDay}
+        />
+        <Text style={{marginLeft: wp(10)}}>
+          {'ordered on  '}
+          <Text>{'Mar 21,2021'}</Text>
+        </Text>
+        {/* <Text>{item?.time}</Text> */}
+      </View>
+      <View
+        style={{
+          height: hp(1),
+          marginTop: hp(5),
+          backgroundColor: '#EEE',
+        }}></View>
+      <TouchableOpacity>
+        <Text style={[commonStyles.HeaderText, {marginTop: hp(10)}]}>
+          {'Price Details'}
+        </Text>
+        <View style={[styles.textView]}>
+          <View>
+            <Text style={styles.text}>{'Product'}</Text>
+            <Text style={commonStyles.CommonText}>{'( items : 3 )'}</Text>
+          </View>
+          <Text style={styles.text1}>{'HK$ 16'}</Text>
+        </View>
+
+        <View style={[styles.textView]}>
+          <Text style={styles.text}>{'Total '}</Text>
+          <Text style={styles.text1}>{'HK$ 1,492'}</Text>
+        </View>
+        <View style={[styles.textView]}>
+          <Text style={styles.text}>{'Paid on '}</Text>
+          <Text style={styles.text1}>{'Paypal'}</Text>
+        </View>
+        <View style={[styles.textView]}>
+          <Text style={styles.text}>{'Order id'}</Text>
+          <Text style={styles.text1}>{'#12345695238'}</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  list: {
+    flexDirection: 'row',
+    marginVertical: hp(12),
+  },
+  imageView: {
+    height: hp(95),
+    width: wp(96),
+    borderRadius: 5,
+  },
+  textView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: hp(20),
+  },
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#2c3e50',
+    marginHorizontal: hp(4),
+    shadowColor: '#000',
+    marginTop: hp(12),
+    marginHorizontal: wp(8),
+    elevation: 1,
+  },
+  text: {
+    fontSize: fs(14),
+    fontWeight: '400',
+    color: colors.black,
+  },
+  text1: {
+    fontSize: fs(15),
+    fontWeight: '500',
+    color: colors.black,
   },
 });
 

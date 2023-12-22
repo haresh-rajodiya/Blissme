@@ -2,7 +2,12 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Modal from 'react-native-modal';
 import OrderProductItem from '../../../../components/OrderProduct';
-import {OrderProductData} from '../../../../helper/dummyData';
+import {
+  OrderProductData,
+  OrderProductModalData,
+} from '../../../../helper/dummyData';
+import OrderProductModal from '../../../../components/OrderProductModal';
+import {colors} from 'react-native-swiper-flatlist/src/themes';
 
 const OrderProduct = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -19,7 +24,7 @@ const OrderProduct = () => {
         backdropColor="white"
         coverScreen={false}
         onBackdropPress={() => setModalVisible(false)}>
-        <View style={{height: '90%'}}></View>
+        <OrderProductModal DATA={OrderProductModalData} />
       </Modal>
     </View>
   );
@@ -30,6 +35,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: colors.white,
   },
 });
 

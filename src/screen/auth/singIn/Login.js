@@ -300,7 +300,12 @@ const LoginScreen = ({navigation}) => {
           }}
         />
       </View>
-      <Button onPress={() => sendotp()} title={'Continue'} style={hp(40)} />
+      <Button
+        onPress={() => sendotp()}
+        title={'Continue'}
+        style={hp(40)}
+        color={colors.black}
+      />
       <Text style={[commonStyles.CommonText, styles.signupText]}>
         - Or sign up with -
       </Text>

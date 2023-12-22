@@ -4,6 +4,7 @@ import Logo from '../../../components/Logo';
 import {hp} from '../../../helper/helper';
 import Button from '../../../components/common/Button';
 import {commonStyles} from '../../../helper/commonStyle';
+import {colors} from 'react-native-swiper-flatlist/src/themes';
 
 const SelectCategory = ({navigation}) => {
   return (
@@ -16,11 +17,13 @@ const SelectCategory = ({navigation}) => {
         onPress={() => navigation.navigate('ClientHome')}
         title={'Seller'}
         style={hp(20)}
+        color={'#000'}
       />
       <Button
         onPress={() => navigation.navigate('OnBoarding')}
         title={'Customer'}
         style={hp(30)}
+        color={'#000'}
       />
     </SafeAreaView>
   );

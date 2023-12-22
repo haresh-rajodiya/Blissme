@@ -45,6 +45,7 @@ const Signup = ({navigation}) => {
       <PrimaryTextInput />
       <Button
         title={'Create New Account'}
+        color={colors.black}
         onPress={() => navigation.navigate('Verification')}
       />
 

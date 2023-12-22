@@ -14,6 +14,7 @@ import PrimaryTextInput from '../../components/common/PrimaryTextInput';
 import Button from '../../components/common/Button';
 import Header from '../../components/Header';
 import {icons} from '../../helper/imageConstans';
+import {colors} from '../../helper';
 
 const Verification = ({navigation}) => {
   const {navigate, goBack} = useNavigation();
@@ -53,6 +54,7 @@ const Verification = ({navigation}) => {
         onPress={() => navigation.navigate('SelectCategory')}
         title={'Verify'}
         style={hp(44)}
+        color={colors.black}
       />
       <View
         style={{

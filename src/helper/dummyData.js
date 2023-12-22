@@ -535,3 +535,19 @@ export const OrderProductData = [
     image: icons.OilMask,
   },
 ];
+export const OrderProductModalData = [
+  {
+    title:
+      'Wella Professional Enrich Moisturizing Treatment For Dry And Damaged Hair',
+    quantity: '1',
+    image: icons.OilMask,
+    date: 'Mar 21,2021',
+  },
+
+  {
+    title: 'Kerastase Elixir Ultime Oleo Complexe Beautifying Oil Mask',
+    quantity: '2',
+    image: icons.HairOil,
+    date: 'Mar 21,2021',
+  },
+];

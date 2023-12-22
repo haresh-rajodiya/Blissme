@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
     marginTop: hp(12),
     height: hp(450),
     marginHorizontal: wp(8),
+    elevation: 1,
   },
   text: {
     fontSize: fs(14),

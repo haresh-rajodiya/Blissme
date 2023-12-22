@@ -2,12 +2,12 @@ import React from 'react';
 import {Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {hp, wp} from '../../helper/helper';
 
-const Button = ({onPress, title, addImage, onLongPress, style}) => {
+const Button = ({onPress, title, addImage, onLongPress, style, color}) => {
   return (
     <TouchableOpacity
       onPress={() => onPress()}
       onLongPress={() => onLongPress()}
-      style={[styles.Btn, {marginTop: style}]}>
+      style={[styles.Btn, {marginTop: style, backgroundColor: color}]}>
       {addImage && <Image style={[styles.image]} source={addImage} />}
       {title && (
         <Text style={[styles.BtnText, {color: '#ffffff'}]}>{title}</Text>
