@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
+import Modal from 'react-native-modal';
 import Header from '../../../components/Header';
 import {fs, hp, wp} from '../../../helper/helper';
 import {icons} from '../../../helper/imageConstans';
@@ -20,6 +21,10 @@ import TopShopList from '../../../components/TopShopList';
 import {TopSalonList} from '../../../helper/dummyData';
 
 const TopSalon = ({navigation}) => {
+  const [isModalVisible, setModalVisible] = useState(false);
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <Header
@@ -47,7 +52,17 @@ const TopSalon = ({navigation}) => {
         <Swiper />
         <ButtonList onPress={item => navigation.navigate(item.navigateTo)} />
 
-        <FilterView />
+        <FilterView onPress={toggleModal} />
+        <Modal
+          isVisible={isModalVisible}
+          backdropOpacity={1}
+          backdropColor="white"
+          coverScreen={false}
+          onBackdropPress={() => setModalVisible(false)}>
+          <View style={{height: '50%', marginTop: 'auto'}}>
+            {/* <OrderAppointmentModal DATA={AppointmentCartList} /> */}
+          </View>
+        </Modal>
         <Text style={styles.salonHeader}>Top Salon</Text>
         <TopShopList
           DATA={TopSalonList}
@@ -84,3 +99,29 @@ const styles = StyleSheet.create({
 });
 
 export default TopSalon;
+
+// <Modal
+//   animationType="slide"
+//   transparent={true}
+//   visible={this.state.modalVisible}
+//   onRequestClose={() => {
+//     // this.closeButtonFunction()
+//   }}>
+//   <View
+//     style={{
+//       height: '50%',
+//       marginTop: 'auto',
+//       backgroundColor:'blue'
+//     }}>
+//     <View style={styles.footer}>
+//       <Text style={styles.headerText}>This is Half Modal</Text>
+//     </View>
+//     <TouchableOpacity
+//       style={styles.addButton}
+//       onPress={() => {
+//         this.setModalVisible(!this.state.modalVisible);
+//       }}>
+//       <Text style={styles.addButtonText}>Close</Text>
+//     </TouchableOpacity>
+//   </View>
+// </Modal>

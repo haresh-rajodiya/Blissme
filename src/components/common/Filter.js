@@ -4,9 +4,9 @@ import {icons} from '../../helper/imageConstans';
 import {fs, hp, wp} from '../../helper/helper';
 import {colors} from '../../helper';
 
-const FilterView = () => {
+const FilterView = ({onPress}) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Text style={styles.text}>{'Filter'}</Text>
       <Image
         style={styles.image}
