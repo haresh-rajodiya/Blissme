@@ -14,6 +14,10 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import FaceMassage from '../screen/tabs/customer/FaceMassage';
 import OurProduct from '../screen/tabs/customer/OurProduct';
 import SetLocation from '../screen/tabs/customer/SetLocation';
+import Offers from '../screen/tabs/customer/Offers';
+import Conditions from '../screen/tabs/customer/Conditions';
+import Policy from '../screen/tabs/Policy';
+import About from '../screen/tabs/About';
 
 const Bottom = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -33,6 +37,10 @@ const ProfileTab = () => {
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="SetLocation" component={SetLocation} />
+      <Stack.Screen name="Offers" component={Offers} />
+      <Stack.Screen name="Conditions" component={Conditions} />
+      <Stack.Screen name="Policy" component={Policy} />
+      <Stack.Screen name="About" component={About} />
     </Stack.Navigator>
   );
 };

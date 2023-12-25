@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, Image, ImageBackground} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import {offerSwiperData} from '../helper/dummyData';
 import {fs, hp, wp} from '../helper/helper';
@@ -22,6 +28,11 @@ const OfferSwiper = ({title, title1, text}) => {
               <Text style={styles.offer}>{item.title1}</Text>
             </Text>
             <Text style={styles.title}>{item.text}</Text>
+            <TouchableOpacity style={styles.buttonView}>
+              <Text style={[styles.title, {fontSize: fs(15)}]}>
+                {'Buy Now'}
+              </Text>
+            </TouchableOpacity>
           </View>
         </ImageBackground>
       </View>
@@ -43,7 +54,7 @@ const OfferSwiper = ({title, title1, text}) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    marginTop: hp(26),
+    marginTop: hp(30),
     width: '100%',
     height: hp(186),
   },
@@ -60,6 +71,15 @@ const styles = StyleSheet.create({
   textView: {
     marginTop: hp(28),
     marginLeft: wp(17),
+  },
+  buttonView: {
+    height: hp(24),
+    width: wp(97),
+    backgroundColor: colors.darkPink,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: hp(6),
   },
 });
 

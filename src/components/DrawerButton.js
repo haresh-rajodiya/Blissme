@@ -6,7 +6,7 @@ import {commonStyles} from '../helper/commonStyle';
 import {colors} from '../helper/colors';
 import Header from './Header';
 
-const DrawerButton = ({navigation}) => {
+const DrawerButton = ({offersScreen, terms, privacy, about}) => {
   //  const navigation = useNavigation();
   // const {navigate} = useNavigation();
 
@@ -27,19 +27,21 @@ const DrawerButton = ({navigation}) => {
       <TouchableOpacity style={styles?.mainContainer}>
         <Text style={commonStyles.HeaderText}>My Order</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles?.mainContainer}>
+      <TouchableOpacity style={styles?.mainContainer} onPress={offersScreen}>
         <Text style={commonStyles.HeaderText}>Offers</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles?.mainContainer}>
-        <Text style={commonStyles.HeaderText}>Terms & Condition</Text>
+        <Text style={commonStyles.HeaderText} onPress={terms}>
+          Terms & Condition
+        </Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles?.mainContainer}>
+      <TouchableOpacity style={styles?.mainContainer} onPress={privacy}>
         <Text style={commonStyles.HeaderText}>Privacy & Policy</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles?.mainContainer}>
         <Text style={commonStyles.HeaderText}>Invite a friends</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles?.mainContainer}>
+      <TouchableOpacity style={styles?.mainContainer} onPress={about}>
         <Text style={commonStyles.HeaderText}>About</Text>
       </TouchableOpacity>
       <TouchableOpacity

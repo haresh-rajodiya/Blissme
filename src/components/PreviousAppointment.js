@@ -7,7 +7,7 @@ import {
   Image,
   FlatList,
   ScrollView,
-  SafeAreaView
+  SafeAreaView,
 } from 'react-native';
 import {hp, wp} from '../helper/helper';
 import {icons} from '../helper/imageConstans';
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   container: {
-    marginHorizontal: hp(4),
+    // marginHorizontal: hp(4),
     elevation: 5,
     shadowColor: '#000',
     marginTop: hp(12),

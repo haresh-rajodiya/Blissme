@@ -126,7 +126,7 @@ const Home = ({navigation}) => {
           style={{alignSelf: 'flex-start'}}
           onPress={() => navigation.navigate('OurProduct')}>
           <Text style={[commonStyles.HeaderText, {marginLeft: wp(17)}]}>
-            our Product
+            {'our Product'}
           </Text>
         </TouchableOpacity>
         <ProductList />

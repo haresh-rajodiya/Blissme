@@ -24,7 +24,10 @@ const OurProduct = ({navigation}) => {
       />
       <ProductSwiper />
       <ScrollView>
-        <OurProductList DATA={OurProductListData} />
+        <OurProductList
+          DATA={OurProductListData}
+          ButtonPress={() => navigation.navigate('Cart')}
+        />
         <View style={{height: hp(50)}}></View>
       </ScrollView>
       <AddToCartButton

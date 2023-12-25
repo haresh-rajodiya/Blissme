@@ -160,7 +160,6 @@ const styles = StyleSheet.create({
     marginHorizontal: hp(4),
     shadowColor: '#000',
     marginTop: hp(12),
-    marginHorizontal: wp(8),
     elevation: 1,
   },
   text: {

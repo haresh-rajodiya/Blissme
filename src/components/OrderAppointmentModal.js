@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     marginTop: hp(12),
     height: hp(450),
-    marginHorizontal: wp(8),
     elevation: 1,
   },
   text: {
