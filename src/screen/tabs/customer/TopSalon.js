@@ -53,16 +53,7 @@ const TopSalon = ({navigation}) => {
         <ButtonList onPress={item => navigation.navigate(item.navigateTo)} />
 
         <FilterView onPress={toggleModal} />
-        <Modal
-          isVisible={isModalVisible}
-          backdropOpacity={1}
-          backdropColor="white"
-          coverScreen={false}
-          onBackdropPress={() => setModalVisible(false)}>
-          <View style={{height: '50%', marginTop: 'auto'}}>
-            {/* <OrderAppointmentModal DATA={AppointmentCartList} /> */}
-          </View>
-        </Modal>
+
         <Text style={styles.salonHeader}>Top Salon</Text>
         <TopShopList
           DATA={TopSalonList}
@@ -70,6 +61,17 @@ const TopSalon = ({navigation}) => {
           ButtonPress={() => navigation.navigate('Appointment')}
         />
       </ScrollView>
+      <Modal
+        isVisible={isModalVisible}
+        backdropOpacity={1}
+        backdropColor="black"
+        coverScreen={false}
+        onBackdropPress={() => setModalVisible(false)}>
+        <View
+          style={{height: '50%', marginTop: 'auto', backgroundColor: 'white'}}>
+          {/* <OrderAppointmentModal DATA={AppointmentCartList} /> */}
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 };

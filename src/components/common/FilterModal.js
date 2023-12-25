@@ -4,7 +4,7 @@ import {View, Text, StyleSheet} from 'react-native';
 const FilterModal = () => {
   return (
     <View style={styles.container}>
-      <Text>FilterModal</Text>
+      <Text>Place</Text>
     </View>
   );
 };
