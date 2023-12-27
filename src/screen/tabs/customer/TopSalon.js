@@ -19,6 +19,7 @@ import ButtonList from '../../../components/common/ButtonList';
 import FilterView from '../../../components/common/Filter';
 import TopShopList from '../../../components/TopShopList';
 import {TopSalonList} from '../../../helper/dummyData';
+import FilterModal from '../../../components/common/FilterModal';
 
 const TopSalon = ({navigation}) => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -68,8 +69,9 @@ const TopSalon = ({navigation}) => {
         coverScreen={false}
         onBackdropPress={() => setModalVisible(false)}>
         <View
-          style={{height: '50%', marginTop: 'auto', backgroundColor: 'white'}}>
+          style={{height: '80%', marginTop: 'auto', backgroundColor: 'white'}}>
           {/* <OrderAppointmentModal DATA={AppointmentCartList} /> */}
+          <FilterModal />
         </View>
       </Modal>
     </SafeAreaView>

@@ -39,7 +39,11 @@ const NearbyStore = ({navigation}) => {
           Mong Kok Flower Market
         </Text>
       </View>
-      <NearByShop DATA={TopSalonList} />
+      <NearByShop
+        DATA={TopSalonList}
+        ButtonPress={() => navigation.navigate('Appointment')}
+        onPress={() => navigation.navigate('SpaDetails')}
+      />
     </SafeAreaView>
   );
 };

@@ -17,6 +17,16 @@ import SpaDetails from '../screen/tabs/customer/SpaDetails';
 import Appointment from '../screen/tabs/customer/Appointment';
 import Cart from '../screen/tabs/customer/Cart';
 import PaymentMethod from '../screen/tabs/customer/PaymentMethod';
+import Services from '../screen/tabs/client/Services';
+import Stylist from '../screen/tabs/client/Stylist';
+import ProfileScreen from '../screen/tabs/client/ProfileScreen';
+import GalleryScreen from '../screen/tabs/client/GalleryScreen';
+import AppointmentScreen from '../screen/tabs/client/AppointmentScreen';
+import ProductScreen from '../screen/tabs/client/ProductScreen';
+import PromotionScreen from '../screen/tabs/client/PromotionScreen';
+import TimeSlotScreen from '../screen/tabs/client/TimeSlot';
+import ServiceCategories from '../screen/tabs/client/ServiceCategories';
+import AddStylist from '../screen/tabs/client/AddStylist';
 
 const Stack = createNativeStackNavigator();
 const Routes = () => {
@@ -41,6 +51,16 @@ const Routes = () => {
         <Stack.Screen name="Appointment" component={Appointment} />
         <Stack.Screen name="Cart" component={Cart} />
         <Stack.Screen name="PaymentMethod" component={PaymentMethod} />
+        <Stack.Screen name="Services" component={Services} />
+        <Stack.Screen name="Stylist" component={Stylist} />
+        <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+        <Stack.Screen name="GalleryScreen" component={GalleryScreen} />
+        <Stack.Screen name="AppointmentScreen" component={AppointmentScreen} />
+        <Stack.Screen name="ProductScreen" component={ProductScreen} />
+        <Stack.Screen name="PromotionScreen" component={PromotionScreen} />
+        <Stack.Screen name="TimeSlotScreen" component={TimeSlotScreen} />
+        <Stack.Screen name="ServiceCategories" component={ServiceCategories} />
+        <Stack.Screen name="AddStylist" component={AddStylist} />
       </Stack.Navigator>
     </NavigationContainer>
   );

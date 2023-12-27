@@ -5,6 +5,7 @@ import {
   StyleSheet,
   SafeAreaView,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import {hp, wp} from '../../../helper/helper';
 import {commonStyles} from '../../../helper/commonStyle';
@@ -13,6 +14,7 @@ import {icons} from '../../../helper/imageConstans';
 import {colors} from 'react-native-swiper-flatlist/src/themes';
 import RadioButton from '../../../components/RadioButton';
 import AddToCartButton from '../../../components/AddToCartButton';
+import {source} from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
 // import {RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET} from '@env';
 // import RazorpayCheckout from 'react-native-razorpay';
 
@@ -24,18 +26,25 @@ const PaymentMethod = ({navigation}) => {
   };
   const renderRadioOptions = options => {
     return options.map(option => (
-      <TouchableOpacity
-        key={option}
-        style={[
-          styles.radioButton,
-          selectedOption === option && styles.selectedRadioButton,
-        ]}
-        onPress={() => handleOptionSelect(option)}>
-        <Text>{option}</Text>
-      </TouchableOpacity>
+      <View
+        style={{flexDirection: 'row', alignItems: 'center', marginTop: hp(30)}}>
+        <TouchableOpacity
+          key={option}
+          style={[
+            styles.radioButton,
+            selectedOption === option && styles.selectedRadioButton,
+          ]}
+          onPress={() => handleOptionSelect(option)}></TouchableOpacity>
+        <Text style={{marginLeft: wp(10)}}>{option}</Text>
+      </View>
     ));
   };
-  const radioOptions = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
+  const radioOptions = ['Stripe', 'Paypal', 'Pay at Shop'];
+  // const Options = [
+  //   <View style={{height: hp(25), width: wp(25)}}>
+  //     <Image style={{height: hp(25), width: wp(25)}} source={icons.apple} />
+  //   </View>,
+  // ];
 
   // let razorpayKeyId = RAZORPAY_KEY_ID;
   // let razorpayKeySecret = RAZORPAY_KEY_SECRET;
@@ -87,16 +96,17 @@ const PaymentMethod = ({navigation}) => {
         ]}>
         {'Choose your Payment gateway'}
       </Text>
+      <View>
+        {/* <RadioButton
+          value={radioValue}
+          changeValue={() => setRadioValue(!radioValue)}
+        /> */}
 
-      <RadioButton
-        value={radioValue}
-        changeValue={() => setRadioValue(!radioValue)}
-      />
-
-      <RadioButton
-        value={radioValue}
-        changeValue={() => setRadioValue(!radioValue)}
-      />
+        {/* <RadioButton
+          value={radioValue}
+          changeValue={() => setRadioValue(!radioValue)}
+        /> */}
+      </View>
 
       <AddToCartButton
         title={'Make Payment'}
@@ -121,9 +131,12 @@ const styles = StyleSheet.create({
   radioButton: {
     borderWidth: 1,
     borderColor: '#000',
-    borderRadius: 12,
+    borderRadius: 25,
     padding: 10,
     marginVertical: 5,
+    marginLeft: wp(20),
+    width: wp(25),
+    height: hp(25),
   },
   selectedRadioButton: {
     backgroundColor: '#F93A8B',

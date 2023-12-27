@@ -24,38 +24,42 @@ const OrderAppointment = () => {
     setModalVisible(!isModalVisible);
   };
   return (
-    <ScrollView style={styles.container}>
-      <Text
-        style={[
-          commonStyles.HeaderText,
-          {marginTop: hp(28), marginLeft: wp(16)},
-        ]}>
-        {'Upcoming Appointment'}
-      </Text>
-      <TouchableOpacity onPress={toggleModal}>
-        <UpcomingAppointment DATA={AppointmentCartList} onPress={toggleModal} />
-      </TouchableOpacity>
+    <View style={styles.container}>
+      <ScrollView>
+        <Text
+          style={[
+            commonStyles.HeaderText,
+            {marginTop: hp(28), marginLeft: wp(16)},
+          ]}>
+          {'Upcoming Appointment'}
+        </Text>
+        <TouchableOpacity onPress={toggleModal}>
+          <UpcomingAppointment
+            DATA={AppointmentCartList}
+            onPress={toggleModal}
+          />
+        </TouchableOpacity>
 
+        <Text
+          style={[
+            commonStyles.HeaderText,
+            {marginTop: hp(28), marginLeft: wp(16)},
+          ]}>
+          {'Previous Appointment'}
+        </Text>
+        <PreviousAppointment DATA={PreviousAppointmentList} />
+      </ScrollView>
       <Modal
         isVisible={isModalVisible}
         backdropOpacity={1}
         backdropColor="white"
         coverScreen={false}
         onBackdropPress={() => setModalVisible(false)}>
-        <View style={{height: '95%'}}>
+        <View style={{height: '100%'}}>
           <OrderAppointmentModal DATA={AppointmentCartList} />
         </View>
       </Modal>
-
-      <Text
-        style={[
-          commonStyles.HeaderText,
-          {marginTop: hp(28), marginLeft: wp(16)},
-        ]}>
-        {'Previous Appointment'}
-      </Text>
-      <PreviousAppointment DATA={PreviousAppointmentList} />
-    </ScrollView>
+    </View>
   );
 };
 

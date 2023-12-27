@@ -1,6 +1,5 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-
 import CustomSidebar from './CustomSidebar';
 import BottomNavigator from './BottomNavigator';
 const Drawer = createDrawerNavigator();

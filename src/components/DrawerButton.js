@@ -19,30 +19,30 @@ const DrawerButton = ({offersScreen, terms, privacy, about}) => {
           <Image style={[styles.DrawerImage]} source={icons.logo} />
         </View>
         <Text style={[commonStyles.HeaderText, {marginLeft: wp(35.22)}]}>
-          ProExelancers
+          {'ProExelancers'}
         </Text>
       </TouchableOpacity>
       <View
         style={{height: 2, backgroundColor: 'black', marginTop: hp(14)}}></View>
       <TouchableOpacity style={styles?.mainContainer}>
-        <Text style={commonStyles.HeaderText}>My Order</Text>
+        <Text style={commonStyles.HeaderText}>{'My Order'}</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles?.mainContainer} onPress={offersScreen}>
-        <Text style={commonStyles.HeaderText}>Offers</Text>
+        <Text style={commonStyles.HeaderText}>{'Offers'}</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles?.mainContainer}>
         <Text style={commonStyles.HeaderText} onPress={terms}>
-          Terms & Condition
+          {'Terms & Condition'}
         </Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles?.mainContainer} onPress={privacy}>
-        <Text style={commonStyles.HeaderText}>Privacy & Policy</Text>
+        <Text style={commonStyles.HeaderText}>{'Privacy & Policy'}</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles?.mainContainer}>
-        <Text style={commonStyles.HeaderText}>Invite a friends</Text>
+        <Text style={commonStyles.HeaderText}>{'Invite a friends'}</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles?.mainContainer} onPress={about}>
-        <Text style={commonStyles.HeaderText}>About</Text>
+        <Text style={commonStyles.HeaderText}>{'About'}</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[
@@ -63,7 +63,7 @@ const DrawerButton = ({offersScreen, terms, privacy, about}) => {
             source={icons.logout}
           />
         </View>
-        <Text style={[commonStyles.HeaderText]}>Sign Out</Text>
+        <Text style={[commonStyles.HeaderText]}>{'Sign Out'}</Text>
       </TouchableOpacity>
     </View>
   );

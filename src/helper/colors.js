@@ -12,5 +12,6 @@ export const colors = {
   royalBlue: '#1877F2',
   yellow: '#FFFF00',
   pink: '#F93A8B',
-  lightBlue: '#00adf5'
+  lightBlue: '#00adf5',
+  darkBlue: '#1D1B44;',
 };

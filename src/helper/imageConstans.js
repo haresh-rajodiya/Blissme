@@ -67,4 +67,9 @@ export const icons = {
   deleteRed: require('../../assets/icon/deleteRed.png'),
   camera: require('../../assets/icon/camera.png'),
   map: require('../../assets/image/map.png'),
+  notification: require('../../assets/icon/notification.png'),
+  add: require('../../assets/icon/add.png'),
+  edit: require('../../assets/icon/edit.png'),
+  backArrow: require('../../assets/icon/backArrow.png'),
+  redStar: require('../../assets/icon/redStar.png'),
 };

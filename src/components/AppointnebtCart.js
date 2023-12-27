@@ -8,7 +8,6 @@ import {
   FlatList,
 } from 'react-native';
 import {fs, hp, wp} from '../helper/helper';
-import {colors} from '../helper';
 import {icons} from '../helper/imageConstans';
 import {commonStyles} from '../helper/commonStyle';
 

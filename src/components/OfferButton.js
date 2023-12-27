@@ -3,9 +3,9 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {colors} from '../helper';
 import {fs, hp, wp} from '../helper/helper';
 
-const OfferButton = ({title, marginTop}) => {
+const OfferButton = ({title, height}) => {
   return (
-    <TouchableOpacity style={[styles.container]}>
+    <TouchableOpacity style={[styles.container, {height: height}]}>
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.pink,
-    height: hp(65),
+    // height: hp(65),
     marginHorizontal: wp(16),
     borderRadius: 5,
     marginTop: hp(20),

@@ -14,7 +14,7 @@ import {commonStyles} from '../helper/commonStyle';
 
 const Item = ({item, onPress, ButtonPress}) => {
   return (
-    <TouchableOpacity style={styles.list}>
+    <TouchableOpacity style={styles.list} onPress={onPress}>
       <View style={styles.imageView}>
         <Image style={styles.imageView} source={item?.image} />
       </View>

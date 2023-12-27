@@ -7,25 +7,20 @@ import {colors} from '../../helper';
 const CheckBoxButton = () => {
   const [isSelected, setSelection] = useState(false);
   return (
-    <View style={styles.container}>
-      <CheckBox
-        value={isSelected}
-        onValueChange={setSelection}
-        style={styles.checkbox}
-        tintColors={{true: colors.pink, false: colors.grey}}
-        onCheckColor="#fff"
-        onFillColor={colors.pink}
-        onTintColor={colors.pink}
-        boxType="square"
-      />
-    </View>
+    <CheckBox
+      value={isSelected}
+      onValueChange={setSelection}
+      style={styles.checkbox}
+      tintColors={{true: colors.pink, false: colors.grey}}
+      onCheckColor="#fff"
+      onFillColor={colors.pink}
+      onTintColor={colors.pink}
+      boxType="square"
+    />
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   checkbox: {
     height: hp(24),
     width: wp(24),

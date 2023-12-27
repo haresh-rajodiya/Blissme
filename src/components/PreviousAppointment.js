@@ -33,7 +33,6 @@ const Item = ({item}) => {
             style={{
               flexDirection: 'row',
               marginTop: hp(8),
-              // alignItems: 'center',
             }}>
             <Image
               style={{height: hp(14), width: wp(15), marginTop: hp(3)}}

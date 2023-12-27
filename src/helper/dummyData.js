@@ -1,3 +1,13 @@
+import {
+  Appointment,
+  Gallery,
+  Product,
+  Promotion,
+  Service,
+  SpaProfile,
+  Stylist,
+  Time,
+} from '../../assets/svg/svgImages/svgImage';
 import {icons} from './imageConstans';
 
 export const swiperData = [
@@ -549,5 +559,79 @@ export const OrderProductModalData = [
     quantity: '2',
     image: icons.HairOil,
     date: 'Mar 21,2021',
+  },
+];
+
+export const ClientDashboardIconList = [
+  {
+    id: '0',
+    title: 'Add Services',
+    icon: <Service />,
+    navigateBy: 'Services',
+  },
+  {
+    id: '1',
+    title: 'Add a Stylist',
+    icon: <Stylist />,
+    navigateBy: 'Stylist',
+  },
+  {
+    id: '2',
+    title: 'Spa Profile',
+    icon: <SpaProfile />,
+    navigateBy: 'ProfileScreen',
+  },
+  {
+    id: '3',
+    title: 'Spa gallery',
+    icon: <Gallery />,
+    navigateBy: 'GalleryScreen',
+  },
+  {
+    id: '4',
+    title: 'Add Product',
+    icon: <Product />,
+    navigateBy: 'ProductScreen',
+  },
+  {
+    id: '5',
+    title: 'Appointments',
+    icon: <Appointment />,
+    navigateBy: 'AppointmentScreen',
+  },
+  {
+    id: '6',
+    title: 'Time Slot',
+    icon: <Time />,
+    navigateBy: 'TimeSlotScreen',
+  },
+  {
+    id: '7',
+    title: 'Promotion',
+    icon: <Promotion />,
+    navigateBy: 'PromotionScreen',
+  },
+];
+
+export const CategoriesList = [
+  {
+    title: 'Beauty',
+    // navigateTo: 'SCREEN_NAME',
+  },
+  {
+    title: 'Face Wash',
+    // navigateTo: 'SCREEN_NAME',
+  },
+  {
+    title: 'Face Massage',
+    // navigateTo: 'FaceMassage',
+  },
+  {
+    title: 'Leg Massage',
+    // navigateTo: 'SCREEN_NAME',
+  },
+  {
+    title: 'Face glow',
+    // navigateTo: 'SCREEN_NAME',
   },
 ];
