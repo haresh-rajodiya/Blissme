@@ -31,7 +31,6 @@ import ProductDetails from '../screen/tabs/client/ProductDetails';
 import AddTimeSlot from '../screen/tabs/client/AddTimeSlot';
 import Booked from '../screen/tabs/client/AppointmentTab/Booked';
 import Canceled from '../screen/tabs/client/AppointmentTab/Canceled';
-import Active from '../screen/tabs/client/PramotionTab/Active';
 import Expired from '../screen/tabs/client/PramotionTab/Expired';
 import ActiveTab from '../screen/tabs/client/PramotionTab/Active';
 

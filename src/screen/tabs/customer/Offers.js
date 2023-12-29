@@ -48,9 +48,12 @@ const Offers = ({navigation}) => {
           {' Limited Time Offer'}
         </Text>
       </ImageBackground>
-      <OfferButton title={'20 % Offer for Face Massage'} />
+      <OfferButton title={'20 % Offer for Face Massage'} height={hp(65)} />
       <OfferSwiper />
-      <OfferButton title={'5 % Cash Back Offer for new user '} />
+      <OfferButton
+        title={'5 % Cash Back Offer for new user '}
+        height={hp(65)}
+      />
     </SafeAreaView>
   );
 };
