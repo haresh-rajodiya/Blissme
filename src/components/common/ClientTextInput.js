@@ -2,6 +2,10 @@ import React from 'react';
 import {View, StyleSheet, TextInput} from 'react-native';
 import {colors} from '../../helper';
 import {fs, hp, wp} from '../../helper/helper';
+// import {
+//   keyboardType,
+//   multiline,
+// } from 'deprecated-react-native-prop-types/DeprecatedTextInputPropTypes';
 
 const ClientTextInput = ({
   placeholder,
@@ -9,6 +13,8 @@ const ClientTextInput = ({
   value,
   secureTextEntry,
   autoFocus,
+  multiline,
+  keyboardType,
 }) => {
   return (
     <View
@@ -24,6 +30,8 @@ const ClientTextInput = ({
         onChangeText={onChangeText}
         autoFocus={autoFocus}
         autoCorrect={false}
+        multiline={multiline}
+        keyboardType={keyboardType}
       />
     </View>
   );

@@ -13,11 +13,10 @@ import {commonStyles} from '../../../helper/commonStyle';
 import {hp, wp} from '../../../helper/helper';
 import {colors} from 'react-native-swiper-flatlist/src/themes';
 import {icons} from '../../../helper/imageConstans';
-import Underline from '../../../components/common/Underline';
 import ClientTextInput from '../../../components/common/ClientTextInput';
 import CheckBoxButton from '../../../components/common/CheckBox';
-import Button from '../../../components/common/Button';
 import OfferButton from '../../../components/OfferButton';
+import HeaderText from '../../../components/common/HeaderText';
 
 const ServiceCategories = ({navigation}) => {
   return (
@@ -41,56 +40,25 @@ const ServiceCategories = ({navigation}) => {
       <KeyboardAvoidingView>
         <ScrollView>
           <View style={styles.mainView}>
-            <Text style={[commonStyles.HeaderText, {marginLeft: wp(16)}]}>
-              {'Main Categories Name'}
-            </Text>
+            <HeaderText title={'Main Categories Name'} />
+
             <Image style={styles.mainViewImage} source={icons.redStar} />
           </View>
           <ClientTextInput />
+          <HeaderText title={'Sub categories'} marginTop={25} />
 
-          <Text
-            style={[
-              commonStyles.HeaderText,
-              {marginTop: hp(28), marginLeft: wp(16)},
-            ]}>
-            {'Sub categories'}
-          </Text>
+          <ClientTextInput />
+          <HeaderText title={'Service Time'} marginTop={25} />
+
           <ClientTextInput />
 
-          <Text
-            style={[
-              commonStyles.HeaderText,
-              {marginTop: hp(28), marginLeft: wp(16)},
-            ]}>
-            {'Service Time'}
-          </Text>
-          <ClientTextInput />
-
-          <Text
-            style={[
-              commonStyles.HeaderText,
-              {marginTop: hp(28), marginLeft: wp(16)},
-            ]}>
-            {'Cost'}
-          </Text>
+          <HeaderText title={'Cost'} marginTop={25} />
           <ClientTextInput placeholder={'Service cost'} />
 
           <ClientTextInput placeholder={'Platform cost'} />
 
-          <Text
-            style={[
-              commonStyles.HeaderText,
-              {marginTop: hp(28), marginLeft: wp(16)},
-            ]}>
-            {'Total'}
-          </Text>
-          <Text
-            style={[
-              commonStyles.HeaderText,
-              {marginTop: hp(28), marginLeft: wp(16)},
-            ]}>
-            {'HK$ 588'}
-          </Text>
+          <HeaderText title={'Total'} marginTop={25} />
+          <HeaderText title={'HK$ 588'} marginTop={25} />
           <View style={styles.CheckBoxView}>
             <CheckBoxButton />
             <Text style={[commonStyles.CommonText, {marginLeft: wp(12)}]}>
@@ -105,7 +73,7 @@ const ServiceCategories = ({navigation}) => {
     </SafeAreaView>
   );
 };
-
+//<HeaderText title={'Contact'} marginTop={22} />
 const styles = StyleSheet.create({
   container: {
     flex: 1,

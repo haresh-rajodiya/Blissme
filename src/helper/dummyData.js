@@ -337,6 +337,71 @@ export const ProductList = [
     price: ' 16',
     image: icons.BodyScrubSet,
   },
+  {
+    title: 'Exfoliating Body Scrub Set',
+    Currency: 'HK$',
+    price: ' 16',
+    image: icons.BodyScrubSet,
+  },
+];
+export const ClientProductListData = [
+  {
+    title: 'Kerastase Elixir Ultime Oleo Complexe Beautifying Oil Mask',
+    Currency: 'HK$',
+    price: ' 16',
+    image: icons.OilMask,
+    quantity: '10',
+    navigateBy: 'ProductDetails',
+  },
+  {
+    title: 'L’Oreal Paris Hair Spa Deep Nourishing Creambath For Dry ',
+    Currency: 'HK$',
+    price: ' 16',
+    image: icons.dryHairCream,
+    quantity: '20',
+    navigateBy: 'ProductDetails',
+  },
+  {
+    title:
+      'Wella Professional Enrich Moisturizing Treatment For Dry And Damaged Hair',
+    Currency: 'HK$',
+    price: ' 16',
+    image: icons.HairOil,
+    quantity: '50',
+    navigateBy: 'ProductDetails',
+  },
+  {
+    title: 'Schwarzkopf Spa Essence Hydrating Cream Masque',
+    Currency: 'HK$',
+    price: ' 16',
+    image: icons.cream,
+    quantity: '15',
+    navigateBy: 'ProductDetails',
+  },
+  {
+    title: 'Foaming Shower Gel',
+    Currency: 'HK$',
+    price: ' 16',
+    image: icons.ShowerGel,
+    quantity: '18',
+    navigateBy: 'ProductDetails',
+  },
+  {
+    title: 'Foaming Shower Gel Set',
+    Currency: 'HK$',
+    price: ' 16',
+    image: icons.ShowerGelSet,
+    quantity: '45',
+    navigateBy: 'ProductDetails',
+  },
+  {
+    title: 'Exfoliating Body Scrub Set',
+    Currency: 'HK$',
+    price: ' 16',
+    image: icons.BodyScrubSet,
+    quantity: '78',
+    navigateBy: 'ProductDetails',
+  },
 ];
 export const GalleryData = [
   {
@@ -441,7 +506,128 @@ export const appointmentTime = [
     time: '04:30PM',
   },
 ];
-
+export const TimeSlotData = [
+  {
+    time: '08:00AM',
+  },
+  {
+    time: '08:30AM',
+  },
+  {
+    time: '09:00AM',
+  },
+  {
+    time: '09:30AM',
+  },
+  {
+    time: '10:00AM',
+  },
+  {
+    time: '10:30AM',
+  },
+  {
+    time: '11:00AM',
+  },
+  {
+    time: '11:30AM',
+  },
+  {
+    time: '12:00PM',
+  },
+  {
+    time: '12:30PM',
+  },
+  {
+    time: '01:00PM',
+  },
+  {
+    time: '01:30PM',
+  },
+  {
+    time: '02:00PM',
+  },
+  {
+    time: '02:30PM',
+  },
+  {
+    time: '03:00PM',
+  },
+  {
+    time: '03:30PM',
+  },
+  {
+    time: '04:00PM',
+  },
+  {
+    time: '04:30PM',
+  },
+  {
+    time: '05:00PM',
+  },
+  {
+    time: '05:30PM',
+  },
+];
+export const slotTimingData = [
+  {
+    value: '1',
+    lable: 'Half hour base',
+    // image: {
+    //   uri: 'https://www.vigcenter.com/public/all/images/default-image.jpg',
+    // },
+  },
+  {
+    value: '2',
+    lable: 'Hour base',
+    // image: {
+    //   uri: 'https://www.vigcenter.com/public/all/images/default-image.jpg',
+    // },
+  },
+  {
+    value: '3',
+    lable: 'One & Half hour base',
+    // image: {
+    //   uri: 'https://www.vigcenter.com/public/all/images/default-image.jpg',
+    // },
+  },
+  {
+    value: '4',
+    lable: 'Two Hour Base',
+    // image: {
+    //   uri: 'https://www.vigcenter.com/public/all/images/default-image.jpg',
+    // },
+  },
+];
+export const DropdownTimeData = [
+  {
+    value: '1',
+    lable: '8:30 AM - 9:00 PM',
+    // image: {
+    //   uri: 'https://www.vigcenter.com/public/all/images/default-image.jpg',
+    // },
+  },
+  {
+    value: '2',
+    lable: '8:30 AM - 9:00 PM',
+    // image: {
+    //   uri: 'https://www.vigcenter.com/public/all/images/default-image.jpg',
+    // },
+  },
+  {
+    value: '3',
+    lable: '8:30 AM - 9:00 PM',
+    // image: {
+    //   uri: 'https://www.vigcenter.com/public/all/images/default-image.jpg',
+    // },
+  },
+  {
+    value: '4',
+    lable: 'None ( holiday )',
+    // image: {
+    //   uri: 'https://www.vigcenter.com/public/all/images/default-image.jpg',
+    // },
+  },
+];
 export const CartProductList = [
   {
     title: 'Kerastase Elixir Ultime Oleo Complexe Beautifying Oil Mask',
@@ -633,5 +819,55 @@ export const CategoriesList = [
   {
     title: 'Face glow',
     // navigateTo: 'SCREEN_NAME',
+  },
+];
+
+export const ProductCategoriesList = [
+  {
+    title: 'Oil Mask',
+    // navigateTo: 'SCREEN_NAME',
+  },
+  {
+    title: 'creamBath',
+    // navigateTo: 'SCREEN_NAME',
+  },
+  {
+    title: 'Moisturizing',
+    // navigateTo: 'FaceMassage',
+  },
+  {
+    title: 'Leg Massage',
+    // navigateTo: 'SCREEN_NAME',
+  },
+  {
+    title: 'Face glow',
+    // navigateTo: 'SCREEN_NAME',
+  },
+];
+
+export const UploadImageData = [
+  {
+    id: '0',
+  },
+  {
+    id: '1',
+  },
+  {
+    id: '2',
+  },
+  {
+    id: '3',
+  },
+  {
+    id: '4',
+  },
+  {
+    id: '5',
+  },
+  {
+    id: '6',
+  },
+  {
+    id: '7',
   },
 ];

@@ -26,13 +26,9 @@ const Signup = ({navigation}) => {
         leftIcon={styles.headerLeftContainer}
         addImage={icons.back}
         title={'Create new Account'}
-        onPress={() => goBack()}
+        // onPress={() => goBack()}
+        drawer={() => navigation.goBack()}
       />
-      {/* <Header
-        addImage={require('../../../../assets/icon/back.png')}
-        title={'Create new Account'}
-        onPress={() => goBack()}
-      /> */}
       <Text style={[commonStyles.CommonText, {marginTop: hp(30)}]}>Name</Text>
       <PrimaryTextInput />
       <Text style={[commonStyles.CommonText, {marginTop: hp(30)}]}>

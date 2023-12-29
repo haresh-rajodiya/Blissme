@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 import {fs, hp, wp} from '../helper/helper';
-import {appointmentTime} from '../helper/dummyData';
+import {TimeSlotData} from '../helper/dummyData';
 import {commonStyles} from '../helper/commonStyle';
 import {colors} from '../helper';
 
@@ -15,9 +15,9 @@ const Item = ({item}) => {
   );
 };
 
-const AppointmentTime = () => {
-  const [data, setData] = useState(appointmentTime);
-  // TimeSlotData
+const ClientTimeSlot = () => {
+  const [data, setData] = useState(TimeSlotData);
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -38,13 +38,15 @@ const styles = StyleSheet.create({
     height: hp(30),
     minWidth: wp(85),
     borderRadius: 3,
-    marginTop: hp(24),
+    marginTop: hp(18),
     borderWidth: hp(0),
     marginHorizontal: wp(4),
+    backgroundColor: colors.extraLightGrey,
   },
   container: {
     alignItems: 'center',
+    marginTop: hp(0),
   },
 });
 
-export default AppointmentTime;
+export default ClientTimeSlot;

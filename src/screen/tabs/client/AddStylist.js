@@ -10,12 +10,13 @@ import {
 } from 'react-native';
 import ClientHeader from '../../../components/common/ClientHeader';
 import {commonStyles} from '../../../helper/commonStyle';
-import {hp, wp} from '../../../helper/helper';
+import {fs, hp, wp} from '../../../helper/helper';
 import {colors} from 'react-native-swiper-flatlist/src/themes';
 import {icons} from '../../../helper/imageConstans';
 import ClientTextInput from '../../../components/common/ClientTextInput';
 import CheckBoxButton from '../../../components/common/CheckBox';
 import OfferButton from '../../../components/OfferButton';
+import HeaderText from '../../../components/common/HeaderText';
 
 const AddStylist = ({navigation}) => {
   return (
@@ -37,66 +38,33 @@ const AddStylist = ({navigation}) => {
         rightImage={icons.add}
       />
       <KeyboardAvoidingView>
-        <ScrollView>
-          <View style={styles.mainView}>
-            <Text style={[commonStyles.HeaderText, {marginLeft: wp(16)}]}>
-              {'Add Stylist images '}
-            </Text>
-            <Image style={styles.mainViewImage} source={icons.redStar} />
-          </View>
-          <ClientTextInput placeholder={'avatar illustration.jpeg'} />
-          <Text
-            style={[
-              commonStyles.HeaderText,
-              {marginTop: hp(28), marginLeft: wp(16)},
-            ]}>
-            {'Stylist name'}
+        <View style={styles.mainView}>
+          <HeaderText title={'Add Stylist images '} />
+          <Image style={styles.mainViewImage} source={icons.redStar} />
+        </View>
+        <ClientTextInput placeholder={'avatar illustration.jpeg'} />
+        <HeaderText title={'Stylist name'} marginTop={22} />
+
+        <ClientTextInput placeholder={'Sandy'} />
+
+        <HeaderText title={'Services'} marginTop={22} />
+        <ClientTextInput placeholder={'Hair stylist, massage, hair coloring'} />
+        <HeaderText title={'Location'} marginTop={22} />
+        <ClientTextInput placeholder={'Man mo temple'} />
+        <HeaderText title={'Contact'} marginTop={22} />
+        <ClientTextInput placeholder={'+852-979-5557-9'} />
+
+        <HeaderText title={'Alternative Contact'} marginTop={22} />
+        <ClientTextInput placeholder={'+852-979-5557-7'} />
+        <View style={styles.CheckBoxView}>
+          <CheckBoxButton />
+          <Text style={[commonStyles.CommonText, {marginLeft: wp(12)}]}>
+            {'I agree to the terms and conditions'}
           </Text>
-          <ClientTextInput placeholder={'Sandy'} />
-          <Text
-            style={[
-              commonStyles.HeaderText,
-              {marginTop: hp(28), marginLeft: wp(16)},
-            ]}>
-            {'Services '}
-          </Text>
-          <ClientTextInput
-            placeholder={'Hair stylist, massage, hair coloring'}
-          />
-          <Text
-            style={[
-              commonStyles.HeaderText,
-              {marginTop: hp(28), marginLeft: wp(16)},
-            ]}>
-            {'Location '}
-          </Text>
-          <ClientTextInput placeholder={'Man mo temple'} />
-          <Text
-            style={[
-              commonStyles.HeaderText,
-              {marginTop: hp(28), marginLeft: wp(16)},
-            ]}>
-            {'Contact '}
-          </Text>
-          <ClientTextInput placeholder={'+852-979-5557-9'} />
-          <Text
-            style={[
-              commonStyles.HeaderText,
-              {marginTop: hp(28), marginLeft: wp(16)},
-            ]}>
-            {'Alternative Contact '}
-          </Text>
-          <ClientTextInput placeholder={'+852-979-5557-7'} />
-          <View style={styles.CheckBoxView}>
-            <CheckBoxButton />
-            <Text style={[commonStyles.CommonText, {marginLeft: wp(12)}]}>
-              {'I agree to the terms and conditions'}
-            </Text>
-          </View>
-          <OfferButton title={'Save'} height={hp(43)} />
-          <OfferButton title={'Delete'} height={hp(43)} />
-          <View style={{height: hp(100)}}></View>
-        </ScrollView>
+        </View>
+        <OfferButton title={'Save'} height={hp(43)} />
+        <OfferButton title={'Delete'} height={hp(43)} />
+        <View style={{height: hp(100)}}></View>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -118,6 +86,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: hp(20),
     marginLeft: wp(16),
+  },
+  CommonText: {
+    fontSize: fs(15),
+    fontWeight: '400',
+    color: colors?.black,
   },
 });
 

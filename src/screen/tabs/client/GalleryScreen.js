@@ -12,6 +12,9 @@ import {commonStyles} from '../../../helper/commonStyle';
 import {fs, hp, wp} from '../../../helper/helper';
 import {icons} from '../../../helper/imageConstans';
 import {colors} from 'react-native-swiper-flatlist/src/themes';
+import OfferButton from '../../../components/OfferButton';
+import ImageList from '../../../components/ImageList';
+import {ProductList} from '../../../helper/dummyData';
 
 const GalleryScreen = ({navigation}) => {
   return (
@@ -55,6 +58,8 @@ const GalleryScreen = ({navigation}) => {
         }}>
         <Text style={styles.text1}>{'+ Add More Images'}</Text>
       </TouchableOpacity>
+      <ImageList DATA={ProductList} numColumns={4} />
+      <OfferButton title={'Save'} height={hp(43)} />
     </SafeAreaView>
   );
 };

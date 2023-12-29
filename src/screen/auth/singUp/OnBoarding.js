@@ -11,20 +11,6 @@ import {useNavigation} from '@react-navigation/native';
 import Header from '../../../components/Header';
 import {colors} from '../../../helper/colors';
 import {hp, wp} from '../../../helper/helper';
-// import {
-//   FaceGlowIcon,
-//   FaceIcon,
-//   FaceWashIcon,
-//   LegIcon,
-//   BrushBoule,
-// } from '../../../../assets/svg';
-// import {
-//   BrushBoule,
-//   FaceWash,
-//   Face,
-//   Leg,
-//   FaceGlow,
-// } from '../../../../assets/svg';
 import {
   BrushBoule,
   FaceWash,
@@ -81,12 +67,8 @@ const OnBoarding = ({navigation}) => {
         leftIcon={styles.headerLeftContainer}
         addImage={icons.back}
         title={'Choose your Interests'}
+        drawer={() => navigation.goBack()}
       />
-      {/* <Header
-        addImage={require('../../../../assets/icon/back.png')}
-        title={'Choose your Interests'}
-        onPress={() => goBack()}
-      /> */}
       <View style={{marginTop: hp(18)}}>
         <FlatList
           style={styles.listStyle}

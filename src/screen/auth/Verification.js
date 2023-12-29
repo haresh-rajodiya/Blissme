@@ -24,7 +24,7 @@ const Verification = ({navigation}) => {
         leftContainer={styles.headerLeftContainer}
         leftIcon={styles.headerLeftContainer}
         addImage={icons.back}
-        onPress={() => goBack()}
+        drawer={() => navigation.goBack()}
       />
       <Logo style={hp(86)} />
       <Text

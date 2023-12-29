@@ -1,12 +1,21 @@
-import React, {Component} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, FlatList} from 'react-native';
-import {hp, wp} from '../helper/helper';
-import {icons} from '../helper/imageConstans';
+import React, {Component, useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  FlatList,
+} from 'react-native';
+import ImagePicker from 'react-native-image-crop-picker';
+import {fs, hp, wp} from '../helper/helper';
+import {colors} from '../helper';
+import {horizontal} from 'react-native-swiper-flatlist/src/themes';
 
 const handleImagePicker = () => {
   ImagePicker.openPicker({
-    width,
-    height,
+    width: hp(50),
+    height: hp(50),
     cropping: true,
   })
     .then(image => {
@@ -20,85 +29,83 @@ const handleImagePicker = () => {
     });
 };
 
-const handleCameraPicker = () => {
-  ImagePicker.openCamera({
-    width,
-    height,
-    cropping: true,
-  })
-    .then(image => {
-      setSelectedImage(image.path);
-      setHeight(hp(60));
-      setWidth(wp(60));
-    })
-    .catch(error => {
-      console.log(error);
-    });
-};
-
 const Item = ({item}) => {
   return (
-    <TouchableOpacity
-      style={{
-        marginRight: wp(29),
-      }}>
-      <ImageBackground style={styles.imageView} source={item['image']} />
-      <View style={styles.ratingView}>
-        <Image style={styles.ratingImage} source={icons.star} />
-        <Text style={styles.textList}>{item.rating}</Text>
-      </View>
-    </TouchableOpacity>
+    <View style={styles.list}>
+      <TouchableOpacity
+        style={{
+          height: hp(118),
+          width: wp(75),
+          borderWidth: 1,
+          borderColor: '#000',
+        }}
+        onPress={handleImagePicker}>
+        <Image style={styles.imageView} onPress={handleImagePicker} />
+      </TouchableOpacity>
+    </View>
   );
 };
 
-const ImageList = () => {
-  const [data, setData] = useState(StylistsData);
+const ImageList = ({DATA, horizontal, numColumns}) => {
+  const [data, setData] = useState(DATA);
+  // DATA={ProductList}
   return (
     <View style={styles.container}>
-      {/* <TouchableOpacity
-        style={styles.touchableImageView}
-        onPress={handleImagePicker}>
-        <Image
-          source={{uri: selectedImage}}
-          style={{width: width, height: height, borderRadius: 50}}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.cameraView} onPress={handleCameraPicker}>
-        <Image source={icons.camera} style={{height: hp(12), width: wp(12)}} />
-      </TouchableOpacity> */}
       <FlatList
         data={data}
         renderItem={({item}) => <Item item={item} />}
         keyExtractor={item => item.id}
-        horizontal={true}
+        horizontal={horizontal}
+        numColumns={numColumns}
       />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#2c3e50',
+  list: {
+    marginVertical: hp(17),
+    marginHorizontal: wp(5.5),
   },
-  cameraView: {
-    height: hp(20),
-    width: wp(20),
-    borderRadius: 50,
+  imageView: {
+    height: hp(75),
+    width: wp(102),
+    borderRadius: 5,
+  },
+  priceText: {
+    fontSize: fs(14),
+    fontWeight: '500',
+    color: colors.black,
+    marginTop: hp(15),
+  },
+  titleText: {
+    fontSize: fs(12),
+    fontWeight: '400',
+    color: colors.black,
+    marginTop: hp(1),
+  },
+  text: {
+    fontSize: fs(10),
+    fontWeight: '400',
+    color: colors.grey,
+  },
+  buttonView: {
+    height: hp(29),
+    width: wp(82),
     backgroundColor: colors.pink,
-    marginTop: hp(25),
-    marginLeft: wp(-12),
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: 3,
+    marginTop: hp(7),
   },
-  touchableImageView: {
-    height: hp(60),
-    width: wp(60),
-    borderRadius: 50,
-    marginLeft: wp(12),
-    borderWidth: 1,
+  buttonText: {
+    fontSize: fs(15),
+    fontWeight: '700',
+    color: colors?.white,
+  },
+  container: {
+    alignItems: 'center',
+    marginHorizontal: wp(8),
   },
 });
 

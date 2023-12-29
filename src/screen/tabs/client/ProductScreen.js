@@ -1,13 +1,14 @@
-//import liraries
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
+import {View, Text, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
 import ClientHeader from '../../../components/common/ClientHeader';
 import {commonStyles} from '../../../helper/commonStyle';
-import {hp} from '../../../helper/helper';
+import {hp, wp} from '../../../helper/helper';
 import {icons} from '../../../helper/imageConstans';
 import {colors} from 'react-native-swiper-flatlist/src/themes';
+import ClientProductCategories from '../../../components/ClientProductCategories';
+import ClientProductList from '../../../components/ClientProductList';
+import {ClientProductListData} from '../../../helper/dummyData';
 
-// create a component
 const ProductScreen = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
@@ -27,11 +28,32 @@ const ProductScreen = ({navigation}) => {
         ]}
         rightImage={icons.add}
       />
+      <Text
+        style={[
+          commonStyles.HeaderText,
+          {marginLeft: wp(16), marginTop: hp(23)},
+        ]}>
+        {'Main Categories'}
+      </Text>
+      <ClientProductCategories />
+      <Text
+        style={[
+          commonStyles.HeaderText,
+          {marginLeft: wp(16), marginTop: hp(33)},
+        ]}>
+        {'Products'}
+      </Text>
+      <ScrollView style={{height: hp(120)}}>
+        <ClientProductList
+          DATA={ClientProductListData}
+          // onPress={item => navigation.navigate(item?.navigateBy)}
+          onPress={item => navigation.navigate(item?.navigateBy)}
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
-// define your styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -39,5 +61,4 @@ const styles = StyleSheet.create({
   },
 });
 
-//make this component available to the app
 export default ProductScreen;

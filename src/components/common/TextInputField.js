@@ -36,3 +36,28 @@
 //   },
 // });
 // export default TextInputField;
+
+
+<TextInput
+style={styles.input}
+value={value}
+autoComplete={autoComplete}
+autoCapitalize={autoCapitalize}
+placeholder={placeholder}
+secureTextEntry={secureTextEntry}
+keyboardType={keyboardType}
+returnKeyType={returnKeyType}
+autoFocus={autoFocus}
+onChangeText={onChangeText}
+onSubmitEditing={onSubmitEditing}
+multiline={multiline || false}
+ref={(r) => { inputRef && inputRef(r); }}
+/>
+
+
+input: {
+    paddingRight: 10,
+    lineHeight: 23,
+    flex: 2,
+    textAlignVertical: 'top'
+},

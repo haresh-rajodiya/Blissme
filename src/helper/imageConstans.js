@@ -72,4 +72,8 @@ export const icons = {
   edit: require('../../assets/icon/edit.png'),
   backArrow: require('../../assets/icon/backArrow.png'),
   redStar: require('../../assets/icon/redStar.png'),
+  remove: require('../../assets/icon/remove.png'),
+  deleteBlack: require('../../assets/icon/deleteBlack.png'),
+  phone: require('../../assets/icon/phone.png'),
+  note: require('../../assets/icon/note.png'),
 };

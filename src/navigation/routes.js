@@ -27,6 +27,13 @@ import PromotionScreen from '../screen/tabs/client/PromotionScreen';
 import TimeSlotScreen from '../screen/tabs/client/TimeSlot';
 import ServiceCategories from '../screen/tabs/client/ServiceCategories';
 import AddStylist from '../screen/tabs/client/AddStylist';
+import ProductDetails from '../screen/tabs/client/ProductDetails';
+import AddTimeSlot from '../screen/tabs/client/AddTimeSlot';
+import Booked from '../screen/tabs/client/AppointmentTab/Booked';
+import Canceled from '../screen/tabs/client/AppointmentTab/Canceled';
+import Active from '../screen/tabs/client/PramotionTab/Active';
+import Expired from '../screen/tabs/client/PramotionTab/Expired';
+import ActiveTab from '../screen/tabs/client/PramotionTab/Active';
 
 const Stack = createNativeStackNavigator();
 const Routes = () => {
@@ -61,6 +68,12 @@ const Routes = () => {
         <Stack.Screen name="TimeSlotScreen" component={TimeSlotScreen} />
         <Stack.Screen name="ServiceCategories" component={ServiceCategories} />
         <Stack.Screen name="AddStylist" component={AddStylist} />
+        <Stack.Screen name="ProductDetails" component={ProductDetails} />
+        <Stack.Screen name="AddTimeSlot" component={AddTimeSlot} />
+        <Stack.Screen name="Booked" component={Booked} />
+        <Stack.Screen name="Canceled" component={Canceled} />
+        <Stack.Screen name="ActiveTab" component={ActiveTab} />
+        <Stack.Screen name="Expired" component={Expired} />
       </Stack.Navigator>
     </NavigationContainer>
   );

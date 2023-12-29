@@ -6,6 +6,7 @@ import {commonStyles} from '../../../helper/commonStyle';
 import {hp} from '../../../helper/helper';
 import {icons} from '../../../helper/imageConstans';
 import {colors} from 'react-native-swiper-flatlist/src/themes';
+import AppointmentTab from '../../../components/AppointmentTab';
 
 // create a component
 const AppointmentScreen = ({navigation}) => {
@@ -21,12 +22,8 @@ const AppointmentScreen = ({navigation}) => {
         drawer={() => navigation.goBack()}
         title={'Appointment'}
         rightContainer={commonStyles.headerRightContainer}
-        // rightIcon={[
-        //   commonStyles.headerRightContainer,
-        //   {tintColor: colors.white},
-        // ]}
-        // rightImage={icons.search}
       />
+      <AppointmentTab />
     </SafeAreaView>
   );
 };
