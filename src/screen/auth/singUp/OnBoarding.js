@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -21,6 +21,7 @@ import {
 import {commonStyles} from '../../../helper/commonStyle';
 import Button from '../../../components/common/Button';
 import {icons} from '../../../helper/imageConstans';
+import RadioButton from '../../../components/RadioButton';
 const DATA = [
   {
     id: '0',
@@ -49,7 +50,7 @@ const DATA = [
   },
 ];
 const Item = ({item}) => {
-  // console.log('item123', item);
+  const [value, setValue] = useState(null);
   return (
     <TouchableOpacity style={[styles.TouchableIconView]}>
       <View style={[styles.IconView]}>{item?.icon}</View>
@@ -59,7 +60,9 @@ const Item = ({item}) => {
 };
 
 const OnBoarding = ({navigation}) => {
+  // const [radioValue, setRadioValue] = useState(false);
   const {navigate, goBack} = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       <Header
@@ -78,13 +81,16 @@ const OnBoarding = ({navigation}) => {
           numColumns={'3'}
         />
       </View>
-      <TouchableOpacity onPress={() => navigation.navigate('DrawerNavigator')}>
-        <Text
-          style={[
-            commonStyles.CommonText,
-            {textAlign: 'center', marginTop: hp(307)},
-          ]}>
-          Skip Now
+      {/* <RadioButton
+        value={radioValue}
+        changeValue={() => setRadioValue(!radioValue)}
+      /> */}
+
+      <TouchableOpacity
+        style={styles.text}
+        onPress={() => navigation.navigate('DrawerNavigator')}>
+        <Text style={[commonStyles.CommonText, {textAlign: 'center'}]}>
+          {'Skip Now'}
         </Text>
       </TouchableOpacity>
       <Button
@@ -133,6 +139,60 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text: {
+    marginTop: hp(307),
+    alignSelf: 'center',
+  },
 });
 
 export default OnBoarding;
+
+// import {Platform, StyleSheet, Text, View, Button,TouchableOpacity} from 'react-native';
+
+// export default class App extends Component {
+//   state={
+//     backgroundColor: 'black',
+//     backgroundColor2: 'black',
+//     pressed: false,
+//   };
+
+//   changeColor(){
+//     if(!this.state.pressed){
+//        this.setState({ pressed: true,backgroundColor: 'red', backgroundColor2: 'black'});
+//     } else {
+//       this.setState({ pressed: false, backgroundColor: 'black' ,backgroundColor2: 'red'});
+//     }
+//   }
+//   render() {
+//     return (
+//       <View style={styles.container}>
+//           <TouchableOpacity
+//               style={{backgroundColor:this.state.backgroundColor, padding: 15}}
+//               onPress={()=>this.changeColor()}
+//                 >
+//             <Text style={styles.text}>1 Button</Text>
+//           </TouchableOpacity>
+
+//           <TouchableOpacity
+//               style={{backgroundColor:this.state.backgroundColor2, padding: 15}}
+//               onPress={()=>this.changeColor()}
+//                 >
+//             <Text style={styles.text}>2 button!</Text>
+//           </TouchableOpacity>
+
+//       </View>
+//     );
+//   }
+// }
+
+// const styles = StyleSheet.create({
+//   text:{
+//     color:'white'
+//     },
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#fff',
+//   },
+// });

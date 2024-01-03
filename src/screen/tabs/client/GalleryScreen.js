@@ -59,6 +59,7 @@ const GalleryScreen = ({navigation}) => {
         <Text style={styles.text1}>{'+ Add More Images'}</Text>
       </TouchableOpacity>
       <ImageList DATA={ProductList} numColumns={4} />
+
       <OfferButton title={'Save'} height={hp(43)} />
     </SafeAreaView>
   );

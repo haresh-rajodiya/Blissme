@@ -89,15 +89,13 @@ import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 import {hp, wp} from '../../helper/helper';
 
-const PrimaryTextInput = ({style}) => {
+const PrimaryTextInput = ({style, onChangeText, value}) => {
   return (
     <View style={styles.container}>
       <TextInput
         style={[styles.TextInput, {marginTop: style}]}
-        // value={data}
-        // onChangeText={e => {
-        //   setData(e);
-        // }}
+        value={value}
+        onChangeText={onChangeText}
       />
     </View>
   );
@@ -110,10 +108,11 @@ const styles = StyleSheet.create({
   },
   TextInput: {
     height: hp(43),
-    width: wp(380),
+    width: '100%',
     backgroundColor: '#F8F8F8',
     borderRadius: 5,
     marginTop: hp(12),
+    // marginHorizontal: wp(16),
   },
 });
 

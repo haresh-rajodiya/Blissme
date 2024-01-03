@@ -6,13 +6,16 @@ import ServiceDataList from '../../../../components/common/ServiceDataList';
 import {fs, hp, wp} from '../../../../helper/helper';
 import AddToCartButton from '../../../../components/AddToCartButton';
 
-const Service = () => {
+const Service = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ButtonList />
       <FilterView />
       <ServiceDataList />
-      <AddToCartButton title={'Continue'} />
+      <AddToCartButton
+        title={'Continue'}
+        cart={() => navigation.navigate('Appointment')}
+      />
     </View>
   );
 };

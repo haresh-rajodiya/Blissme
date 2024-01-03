@@ -32,7 +32,7 @@ const TopSalon = ({navigation}) => {
         leftContainer={[styles.headerRightContainer, {height: hp(19)}]}
         leftIcon={[styles.headerRightContainer, {height: hp(19)}]}
         addImage={icons.drawer}
-        drawer={() => navigation.opeanDrawer()}
+        drawer={() => navigation.openDrawer()}
         title={'Top Salon'}
         rightContainer={styles.headerRightContainer}
         rightIcon={styles.headerRightContainer}
@@ -47,7 +47,7 @@ const TopSalon = ({navigation}) => {
             />
           </TouchableOpacity>
           <Text style={[commonStyles.HeaderText, {marginLeft: wp(20)}]}>
-            Mong Kok Flower Market
+            {'Mong Kok Flower Market'}
           </Text>
         </View>
         <Swiper />
@@ -55,7 +55,7 @@ const TopSalon = ({navigation}) => {
 
         <FilterView onPress={toggleModal} />
 
-        <Text style={styles.salonHeader}>Top Salon</Text>
+        <Text style={styles.salonHeader}>{'Top Salon'}</Text>
         <TopShopList
           DATA={TopSalonList}
           onPress={() => navigation.navigate('SpaDetails')}

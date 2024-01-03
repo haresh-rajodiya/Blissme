@@ -7,14 +7,14 @@ import {
   SafeAreaView,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import Logo from '../../components/Logo';
-import {hp, wp} from '../../helper/helper';
-import {commonStyles} from '../../helper/commonStyle';
-import PrimaryTextInput from '../../components/common/PrimaryTextInput';
-import Button from '../../components/common/Button';
-import Header from '../../components/Header';
-import {icons} from '../../helper/imageConstans';
-import {colors} from '../../helper';
+import Logo from '../../../components/Logo';
+import {hp, wp} from '../../../helper/helper';
+import {commonStyles} from '../../../helper/commonStyle';
+import PrimaryTextInput from '../../../components/common/PrimaryTextInput';
+import Button from '../../../components/common/Button';
+import Header from '../../../components/Header';
+import {icons} from '../../../helper/imageConstans';
+import {colors} from '../../../helper';
 
 const Verification = ({navigation}) => {
   const {navigate, goBack} = useNavigation();

@@ -184,12 +184,15 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
+  SafeAreaView,
 } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import {
   GoogleSignin,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Loader from '../../../components/common/Loader';
 import Logo from '../../../components/Logo';
 import {colors} from '../../../helper/colors';
 import {hp, screenHeight, screenWidth, wp} from '../../../helper/helper';
@@ -203,6 +206,12 @@ const LoginScreen = ({navigation}) => {
   const [otpInput, setOtpInput] = useState('');
   const [confirmData, setConfirmData] = useState('');
   const [userInfo, setUserInfo] = useState('');
+  const [visible, setVisible] = useState(false);
+  const [email, setEmail] = useState('');
+
+  const [password, setPassword] = useState('');
+
+  // const navigation = useNavigation();
 
   useEffect(() => {
     GoogleSignin.configure({
@@ -276,70 +285,75 @@ const LoginScreen = ({navigation}) => {
   // // function handleEmailPhone1(myString) {
   // //   return /\d/.test(myString);
   // // }
-  console.log('====================================');
-  console.log('screenWidth', hp(16), screenHeight);
-  console.log('====================================');
+  // console.log('====================================');
+  // console.log('screenWidth', hp(16), screenHeight);
+  // console.log('====================================');
+
   return (
     <ScrollView style={styles.container}>
-      <Logo style={hp(50)} />
-      <Text style={[commonStyles.HeaderText, styles.logintext]}>Login</Text>
-      <View style={{flexDirection: 'row', paddingHorizontal: wp(16)}}>
-        <TextInput
-          style={[styles.countryInput]}
-          value={data}
-          onChangeText={e => {
-            setData(e);
-          }}
+      <SafeAreaView>
+        <Logo style={hp(50)} />
+        <Text style={[commonStyles.HeaderText, styles.logintext]}>Login</Text>
+        <View style={{flexDirection: 'row', paddingHorizontal: wp(16)}}>
+          <TextInput
+            style={[styles.countryInput]}
+            value={data}
+            onChangeText={e => {
+              setData(e);
+            }}
+          />
+          <TextInput
+            style={[styles.mobileInput]}
+            value={data}
+            keyboardType="numeric"
+            onChangeText={e => {
+              setData(e);
+            }}
+          />
+        </View>
+        <Button
+          onPress={() => sendotp()}
+          title={'Continue'}
+          style={hp(40)}
+          color={colors.black}
         />
-        <TextInput
-          style={[styles.mobileInput]}
-          value={data}
-          keyboardType="numeric"
-          onChangeText={e => {
-            setData(e);
-          }}
-        />
-      </View>
-      <Button
-        onPress={() => sendotp()}
-        title={'Continue'}
-        style={hp(40)}
-        color={colors.black}
-      />
-      <Text style={[commonStyles.CommonText, styles.signupText]}>
-        - Or sign up with -
-      </Text>
-      <View style={[styles.signupBtn]}>
-        <SignupButton
-          onPress={() => {
-            signIn();
-          }}
-          addImage={require('../../../../assets/icon/google.png')}
-        />
-        <SignupButton
-          // google signOut
-          onPress={() => {
-            signOut();
-          }}
-          style={colors.royalBlue}
-          addImage={require('../../../../assets/icon/facebook.png')}
-        />
-        <SignupButton addImage={require('../../../../assets/icon/apple.png')} />
-      </View>
-      <View style={{}}>
-        <Text style={[styles.signupText, {marginTop: hp(100)}]}>
-          Don't have an account ?
-          <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
-            <Text style={[commonStyles.CommonText, {color: '#F93A8B'}]}>
-              {' '}
-              Register
-            </Text>
-          </TouchableOpacity>
+        <Text style={[commonStyles.CommonText, styles.signupText]}>
+          - Or sign up with -
         </Text>
-      </View>
-      {/* <AlignedText style={{color: 'red'}} alignItems="center">
+        <View style={[styles.signupBtn]}>
+          <SignupButton
+            onPress={() => {
+              signIn();
+            }}
+            addImage={require('../../../../assets/icon/google.png')}
+          />
+          <SignupButton
+            // google signOut
+            onPress={() => {
+              signOut();
+            }}
+            style={colors.royalBlue}
+            addImage={require('../../../../assets/icon/facebook.png')}
+          />
+          <SignupButton
+            addImage={require('../../../../assets/icon/apple.png')}
+          />
+        </View>
+        <View style={{}}>
+          <Text style={[styles.signupText, {marginTop: hp(100)}]}>
+            {"Don't have an account ?"}
+            <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
+              <Text style={[commonStyles.CommonText, {color: '#F93A8B'}]}>
+                {'Register'}
+              </Text>
+            </TouchableOpacity>
+          </Text>
+        </View>
+        {/* <AlignedText style={{color: 'red'}} alignItems="center">
         Centered <Text style={{fontSize: 50}}>text</Text>
       </AlignedText> */}
+        <Loader visible={visible} />
+      </SafeAreaView>
     </ScrollView>
   );
 };

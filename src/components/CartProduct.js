@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {fs, hp, wp} from '../helper/helper';
 import {colors} from '../helper';
+import {commonStyles} from '../helper/commonStyle';
 
 const Item = ({item}) => {
   return (
@@ -17,7 +18,7 @@ const Item = ({item}) => {
         <Image style={styles.imageView} source={item?.image} />
       </View>
       <View style={{width: wp(166), marginLeft: wp(10)}}>
-        <Text>{item?.title}</Text>
+        <Text style={commonStyles.CommonText}>{item?.title}</Text>
         <Text style={styles.priceText}>
           {item?.Currency}
           <Text>{item?.price}</Text>

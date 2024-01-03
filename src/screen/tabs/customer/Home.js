@@ -94,7 +94,7 @@ const Home = ({navigation}) => {
             />
           </TouchableOpacity>
           <Text style={[commonStyles.HeaderText, {marginLeft: wp(20)}]}>
-            Mong Kok Flower Market
+            {'Mong Kok Flower Market'}
           </Text>
         </View>
         <Swiper />

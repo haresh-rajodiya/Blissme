@@ -100,9 +100,9 @@ const PaymentMethod = ({navigation}) => {
         {/* <RadioButton
           value={radioValue}
           changeValue={() => setRadioValue(!radioValue)}
-        /> */}
+        />
 
-        {/* <RadioButton
+        <RadioButton
           value={radioValue}
           changeValue={() => setRadioValue(!radioValue)}
         /> */}

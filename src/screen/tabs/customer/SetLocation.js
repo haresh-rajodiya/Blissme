@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {
-  View,
   Text,
   StyleSheet,
   Image,
@@ -13,7 +12,6 @@ import {commonStyles} from '../../../helper/commonStyle';
 import {icons} from '../../../helper/imageConstans';
 import Header from '../../../components/Header';
 import Button from '../../../components/common/Button';
-import {colors} from 'react-native-swiper-flatlist/src/themes';
 
 const SetLocation = ({navigation}) => {
   const [houseNo, setHouseNo] = useState('');
@@ -30,7 +28,7 @@ const SetLocation = ({navigation}) => {
         />
 
         <Image
-          style={{marginTop: hp(30), height: hp(292)}}
+          style={{marginTop: hp(30), height: hp(292), width: '100%'}}
           source={icons.map}
         />
         <Text

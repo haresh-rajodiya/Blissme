@@ -10,7 +10,6 @@ import {
 import ImagePicker from 'react-native-image-crop-picker';
 import {fs, hp, wp} from '../helper/helper';
 import {colors} from '../helper';
-import {horizontal} from 'react-native-swiper-flatlist/src/themes';
 
 const handleImagePicker = () => {
   ImagePicker.openPicker({

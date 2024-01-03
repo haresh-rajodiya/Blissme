@@ -1,5 +1,7 @@
-import React, {Component} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
+import {useRoute} from '@react-navigation/native';
+import firestore from '@react-native-firebase/firestore';
 import {colors} from '../../../helper';
 import {commonStyles} from '../../../helper/commonStyle';
 import {hp, wp} from '../../../helper/helper';
@@ -9,6 +11,47 @@ import ClientCategories from '../../../components/ClientCategories';
 import SubCategories from '../../../components/SubCategories';
 
 const Services = ({navigation}) => {
+  // const [messageList, setMessageList] = useState([]);
+  // const route = useRoute();
+  // useEffect(() => {
+  //   const subscriber = firestore()
+  //     .collection('categories')
+  //     .doc(route.params.id + route.params.data.userId)
+  //     .collection('services')
+  //     .orderBy('createdAt', 'desc');
+  //   subscriber.onSnapshot(querysnapshot => {
+  //     const allmessages = querysnapshot.docs.map(item => {
+  //       return {...item._data, createdAt: item._data.createdAt};
+  //     });
+  //     setMessageList(allmessages);
+  //   });
+  //   return () => subscriber;
+  // }, []);
+
+  // const onSend = useCallback(async (messages = []) => {
+  //   const msg = messages[0];
+  //   const myMsg = {
+  //     ...msg,
+  //     sendBy: route.params.id,
+  //     sendTo: route.params.data.userId,
+  //     createdAt: Date.parse(msg.createdAt),
+  //   };
+  //   setMessageList(previousMessages =>
+  //     GiftedChat.append(previousMessages, myMsg),
+  //   );
+  //   firestore()
+  //     .collection('categories')
+  //     .doc('' + route.params.id + route.params.data.userId)
+  //     .collection('services')
+  //     .add(myMsg);
+  //   firestore()
+  //     .collection('categories')
+  //     .doc('' + route.params.data.userId + route.params.id)
+  //     .collection('services')
+  //     .add(myMsg);
+  // }, []);
+  // firebase;
+
   return (
     <SafeAreaView style={styles.container}>
       <ClientHeader
@@ -34,7 +77,12 @@ const Services = ({navigation}) => {
         ]}>
         {'Main Categories'}
       </Text>
-      <ClientCategories />
+      <ClientCategories
+
+      // user={{
+      //   id: route.params.id,
+      // }}
+      />
       <Text
         style={[
           commonStyles.HeaderText,
@@ -93,3 +141,15 @@ const styles = StyleSheet.create({
 });
 
 export default Services;
+
+// firebase
+//   .firestore()
+//   .collection("Users")
+//   .doc("mydoc")
+//   .collection("Activities")
+//   .doc("Database")
+//   .set({
+//     key: "1",
+//     value: "",
+//   })
+//   .then((ref) => { console.log(ref) });

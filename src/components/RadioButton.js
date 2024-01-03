@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {
   TouchableOpacity,
   Image,
-  Text,
   StyleSheet,
   ImageBackground,
 } from 'react-native';
@@ -10,11 +9,10 @@ import {icons} from '../helper/imageConstans';
 import {hp, wp} from '../helper/helper';
 import {colors} from '../helper';
 
-export default Radio = ({value, changeValue, leftImage, text}) => {
+export default Radio = ({value, changeValue}) => {
   const [selectedOption, setSelectedOption] = useState(null);
   return (
     <TouchableOpacity style={radioStyle.btn} onPress={changeValue}>
-      {/* {value ? <Image source={icons.Ellipse} style={radioStyle.tick} /> : null} */}
       {value ? (
         <ImageBackground source={icons.Ellipse} style={radioStyle.tick}>
           {value ? (

@@ -7,13 +7,16 @@ import {colors} from 'react-native-swiper-flatlist/src/themes';
 import ProductItemList from '../../../../components/ProductItemList';
 import {ProductList} from '../../../../helper/dummyData';
 
-const Product = () => {
+const Product = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ProductButtonList />
       <FilterView />
       <ProductItemList DATA={ProductList} />
-      <AddToCartButton title={'Add To Cart'} />
+      <AddToCartButton
+        title={'Add To Cart'}
+        cart={() => navigation.navigate('Cart')}
+      />
     </View>
   );
 };

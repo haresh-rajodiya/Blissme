@@ -30,7 +30,7 @@ const Swiper = () => {
         layout={'default'}
         data={data}
         sliderWidth={0}
-        itemWidth={395}
+        itemWidth={wp(395)}
         renderItem={renderItem}
       />
     </View>

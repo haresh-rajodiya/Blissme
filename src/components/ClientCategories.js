@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, TouchableOpacity, FlatList} from 'react-native';
 import {hp, wp} from '../helper/helper';
 import {colors} from '../helper';
 import {CategoriesList} from '../helper/dummyData';
+import {id} from 'deprecated-react-native-prop-types/DeprecatedTextPropTypes';
 
 const Item = ({item, onPress}) => {
   return (

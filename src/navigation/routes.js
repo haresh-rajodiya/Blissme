@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from '../screen/auth/singIn/Login';
 import Signup from '../screen/auth/singUp/Signup';
-import Verification from '../screen/auth/Verification';
+import Verification from '../screen/auth/singUp/Verification';
 import SelectCategory from '../screen/auth/singUp/SelectCategory';
 import OnBoarding from '../screen/auth/singUp/OnBoarding';
 import ClientDashboard from '../screen/tabs/client/ClientDashboard';

@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
     backgroundColor: '#000',
-    marginTop: hp(83),
+    // marginTop: hp(83),
   },
   image: {
     height: hp(23),
