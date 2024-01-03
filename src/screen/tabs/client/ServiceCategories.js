@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -19,6 +19,11 @@ import OfferButton from '../../../components/OfferButton';
 import HeaderText from '../../../components/common/HeaderText';
 
 const ServiceCategories = ({navigation}) => {
+  const [categories, setCategories] = useState('');
+  const [subCategories, setSubCategories] = useState('');
+  const [time, setTime] = useState('');
+  const [cost, setCost] = useState('');
+  const [platformCost, setPlatformCost] = useState('');
   return (
     <SafeAreaView style={styles.container}>
       <ClientHeader
@@ -44,18 +49,45 @@ const ServiceCategories = ({navigation}) => {
 
             <Image style={styles.mainViewImage} source={icons.redStar} />
           </View>
-          <ClientTextInput />
+          <ClientTextInput
+            value={categories}
+            onChangeText={e => {
+              setCategories(e);
+            }}
+          />
           <HeaderText title={'Sub categories'} marginTop={25} />
 
-          <ClientTextInput />
+          <ClientTextInput
+            value={subCategories}
+            onChangeText={e => {
+              setSubCategories(e);
+            }}
+          />
           <HeaderText title={'Service Time'} marginTop={25} />
 
-          <ClientTextInput />
+          <ClientTextInput
+            value={time}
+            onChangeText={e => {
+              setTime(e);
+            }}
+          />
 
           <HeaderText title={'Cost'} marginTop={25} />
-          <ClientTextInput placeholder={'Service cost'} />
+          <ClientTextInput
+            placeholder={'Service cost'}
+            value={cost}
+            onChangeText={e => {
+              setCost(e);
+            }}
+          />
 
-          <ClientTextInput placeholder={'Platform cost'} />
+          <ClientTextInput
+            placeholder={'Platform cost'}
+            value={platformCost}
+            onChangeText={e => {
+              setPlatformCost(e);
+            }}
+          />
 
           <HeaderText title={'Total'} marginTop={25} />
           <HeaderText title={'HK$ 588'} marginTop={25} />

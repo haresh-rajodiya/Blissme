@@ -20,6 +20,7 @@ const ClientTextInput = ({
     <View
       style={{
         marginTop: hp(15),
+        // borderBottomWidth: 1,
       }}>
       <TextInput
         value={value}

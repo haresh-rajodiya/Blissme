@@ -48,10 +48,12 @@ const styles = StyleSheet.create({
     width: wp(7),
     height: hp(14),
     marginLeft: wp(8),
+    resizeMode: 'contain',
   },
   image: {
     height: hp(14),
     width: wp(7),
+    resizeMode: 'contain',
   },
 });
 

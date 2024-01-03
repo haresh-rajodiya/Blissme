@@ -11,47 +11,6 @@ import ClientCategories from '../../../components/ClientCategories';
 import SubCategories from '../../../components/SubCategories';
 
 const Services = ({navigation}) => {
-  // const [messageList, setMessageList] = useState([]);
-  // const route = useRoute();
-  // useEffect(() => {
-  //   const subscriber = firestore()
-  //     .collection('categories')
-  //     .doc(route.params.id + route.params.data.userId)
-  //     .collection('services')
-  //     .orderBy('createdAt', 'desc');
-  //   subscriber.onSnapshot(querysnapshot => {
-  //     const allmessages = querysnapshot.docs.map(item => {
-  //       return {...item._data, createdAt: item._data.createdAt};
-  //     });
-  //     setMessageList(allmessages);
-  //   });
-  //   return () => subscriber;
-  // }, []);
-
-  // const onSend = useCallback(async (messages = []) => {
-  //   const msg = messages[0];
-  //   const myMsg = {
-  //     ...msg,
-  //     sendBy: route.params.id,
-  //     sendTo: route.params.data.userId,
-  //     createdAt: Date.parse(msg.createdAt),
-  //   };
-  //   setMessageList(previousMessages =>
-  //     GiftedChat.append(previousMessages, myMsg),
-  //   );
-  //   firestore()
-  //     .collection('categories')
-  //     .doc('' + route.params.id + route.params.data.userId)
-  //     .collection('services')
-  //     .add(myMsg);
-  //   firestore()
-  //     .collection('categories')
-  //     .doc('' + route.params.data.userId + route.params.id)
-  //     .collection('services')
-  //     .add(myMsg);
-  // }, []);
-  // firebase;
-
   return (
     <SafeAreaView style={styles.container}>
       <ClientHeader
@@ -77,12 +36,7 @@ const Services = ({navigation}) => {
         ]}>
         {'Main Categories'}
       </Text>
-      <ClientCategories
-
-      // user={{
-      //   id: route.params.id,
-      // }}
-      />
+      <ClientCategories />
       <Text
         style={[
           commonStyles.HeaderText,
