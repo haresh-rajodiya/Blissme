@@ -6,9 +6,27 @@ import {commonStyles} from '../helper/commonStyle';
 import {colors} from '../helper';
 
 const Item = ({item}) => {
+  const [selectedButtons, setSelectedButtons] = useState([]);
+  const handleButtonPress = buttonId => {
+    if (selectedButtons.includes(buttonId)) {
+      setSelectedButtons(selectedButtons.filter(id => id !== buttonId));
+    } else {
+      setSelectedButtons([...selectedButtons, buttonId]);
+    }
+  };
   return (
-    <TouchableOpacity style={styles.TouchableView}>
-      <Text style={[commonStyles.CommonText, {color: '#666'}]}>
+    <TouchableOpacity
+      style={[
+        styles.TouchableView,
+        selectedButtons.includes(1) && styles.selectTouchableView,
+      ]}
+      onPress={() => handleButtonPress(1)}>
+      <Text
+        style={[
+          commonStyles.CommonText,
+          {color: '#666'},
+          selectedButtons.includes(1) && styles.selectText,
+        ]}>
         {item.time}
       </Text>
     </TouchableOpacity>
@@ -44,6 +62,12 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: 'center',
+  },
+  selectTouchableView: {
+    backgroundColor: colors.pink,
+  },
+  selectText: {
+    color: colors?.white,
   },
 });
 

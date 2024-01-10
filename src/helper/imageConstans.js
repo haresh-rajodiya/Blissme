@@ -76,4 +76,5 @@ export const icons = {
   deleteBlack: require('../../assets/icon/deleteBlack.png'),
   phone: require('../../assets/icon/phone.png'),
   note: require('../../assets/icon/note.png'),
+  fillStar: require('../../assets/icon/fillStar.png'),
 };

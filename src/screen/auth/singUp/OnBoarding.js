@@ -22,47 +22,87 @@ import {commonStyles} from '../../../helper/commonStyle';
 import Button from '../../../components/common/Button';
 import {icons} from '../../../helper/imageConstans';
 import RadioButton from '../../../components/RadioButton';
-const DATA = [
-  {
-    id: '0',
-    title: 'Beauty',
-    icon: <BrushBoule />,
-  },
-  {
-    id: '1',
-    title: 'Face Wash',
-    icon: <FaceWash />,
-  },
-  {
-    id: '2',
-    title: 'Face Massage',
-    icon: <Face />,
-  },
-  {
-    id: '3',
-    title: 'Leg Massage',
-    icon: <Leg />,
-  },
-  {
-    id: '4',
-    title: 'Face glow',
-    icon: <FaceGlow />,
-  },
-];
-const Item = ({item}) => {
-  const [value, setValue] = useState(null);
-  return (
-    <TouchableOpacity style={[styles.TouchableIconView]}>
-      <View style={[styles.IconView]}>{item?.icon}</View>
-      <Text style={styles.listTextStyle}>{item?.title}</Text>
-    </TouchableOpacity>
-  );
-};
 
 const OnBoarding = ({navigation}) => {
-  // const [radioValue, setRadioValue] = useState(false);
-  const {navigate, goBack} = useNavigation();
+  const [selectedButtons, setSelectedButtons] = useState([]);
 
+  const DATA = [
+    {
+      id: '0',
+      title: 'Beauty',
+      icon: (
+        <BrushBoule
+          fill={selectedButtons.includes('0') ? colors.black : colors.grey}
+        />
+      ),
+    },
+    {
+      id: '1',
+      title: 'Face Wash',
+      icon: (
+        <FaceWash
+          fill={selectedButtons.includes('1') ? colors.black : colors.grey}
+        />
+      ),
+    },
+    {
+      id: '2',
+      title: 'Face Massage',
+      icon: (
+        <Face
+          fill={selectedButtons.includes('2') ? colors.black : colors.grey}
+        />
+      ),
+    },
+    {
+      id: '3',
+      title: 'Leg Massage',
+      icon: (
+        <Leg
+          fill={selectedButtons.includes('3') ? colors.black : colors.grey}
+        />
+      ),
+    },
+    {
+      id: '4',
+      title: 'Face glow',
+      icon: (
+        <FaceGlow
+          fill={selectedButtons.includes('4') ? colors.black : colors.grey}
+        />
+      ),
+    },
+  ];
+
+  const Item = ({item}) => {
+    const handleButtonPress = buttonId => {
+      if (selectedButtons.includes(buttonId)) {
+        setSelectedButtons(selectedButtons.filter(id => id !== buttonId));
+      } else {
+        setSelectedButtons([...selectedButtons, buttonId]);
+      }
+    };
+    return (
+      <TouchableOpacity
+        style={[styles.TouchableIconView]}
+        onPress={() => handleButtonPress(item.id)}>
+        <View
+          style={[
+            styles.IconView,
+            selectedButtons.includes(item.id) && styles.selectedButton,
+          ]}>
+          {[item?.icon]}
+        </View>
+        <Text
+          style={[
+            styles.listTextStyle,
+            selectedButtons.includes(item.id) && styles.selectListTextStyle,
+          ]}>
+          {item?.title}
+        </Text>
+      </TouchableOpacity>
+    );
+  };
   return (
     <SafeAreaView style={styles.container}>
       <Header
@@ -81,10 +121,6 @@ const OnBoarding = ({navigation}) => {
           numColumns={'3'}
         />
       </View>
-      {/* <RadioButton
-        value={radioValue}
-        changeValue={() => setRadioValue(!radioValue)}
-      /> */}
 
       <TouchableOpacity
         style={styles.text}
@@ -143,9 +179,74 @@ const styles = StyleSheet.create({
     marginTop: hp(307),
     alignSelf: 'center',
   },
+  selectListTextStyle: {
+    fontSize: hp(15),
+    fontWeight: '700',
+    marginTop: hp(8),
+    color: colors.black,
+  },
+  selectedButton: {
+    borderBlockColor: colors.black,
+    borderWidth: 1,
+    borderColor: colors.black,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: hp(54.08),
+    width: wp(100),
+    borderRadius: 3,
+  },
 });
 
 export default OnBoarding;
+
+// import React, { useState } from 'react';
+// import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+// const App = () => {
+//   const [selectedButtons, setSelectedButtons] = useState([]);
+//   const handleButtonPress = (buttonId) => {
+//     if (selectedButtons.includes(buttonId)) {
+//       setSelectedButtons(selectedButtons.filter(id => id !== buttonId));
+//     } else {
+//       setSelectedButtons([...selectedButtons, buttonId]);
+//     }
+//   };
+//   return (
+//     <View>
+//       <TouchableOpacity
+//         style={[
+//           styles.button,
+//           selectedButtons.includes(1) && styles.selectedButton
+//         ]}
+//         onPress={() => handleButtonPress(1)}
+//       >
+//         <Text>Button 1</Text>
+//       </TouchableOpacity>
+//       <TouchableOpacity
+//         style={[
+//           styles.button,
+//           selectedButtons.includes(2) && styles.selectedButton
+//         ]}
+//         onPress={() => handleButtonPress(2)}
+//       >
+//         <Text>Button 2</Text>
+//       </TouchableOpacity>
+//       {/* Add more buttons as needed */}
+//     </View>
+//   );
+// };
+// const styles = StyleSheet.create({
+//   button: {
+//     padding: 10,
+//     margin: 5,
+//     borderWidth: 1,
+//     borderColor: 'black',
+//   },
+//   selectedButton: {
+//     backgroundColor: 'blue',
+//     color: 'white',
+//   },
+// });
+// export default App;
 
 // import {Platform, StyleSheet, Text, View, Button,TouchableOpacity} from 'react-native';
 

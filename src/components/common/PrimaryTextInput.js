@@ -91,21 +91,21 @@ import {hp, wp} from '../../helper/helper';
 
 const PrimaryTextInput = ({style, onChangeText, value}) => {
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={[styles.TextInput, {marginTop: style}]}
-        value={value}
-        onChangeText={onChangeText}
-      />
-    </View>
+    // <View style={styles.container}>
+    <TextInput
+      style={[styles.TextInput, {marginTop: style}]}
+      value={value}
+      onChangeText={onChangeText}
+    />
+    // </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+  // container: {
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  // },
   TextInput: {
     height: hp(43),
     width: '100%',

@@ -9,10 +9,10 @@ import {
 } from 'react-native';
 import {fs, hp, wp} from '../helper/helper';
 import {colors} from '../helper';
-
-const Item = ({item}) => {
+const Item = ({item, index}) => {
+  let colors = ['#123456', '#654321', '#fdecba', '#abcdef'];
   return (
-    <View style={styles.list}>
+    <View style={[styles.list]}>
       <View>
         <Image style={styles.imageView} source={item?.image} />
       </View>
@@ -26,9 +26,13 @@ const Item = ({item}) => {
         <Text style={styles.text}>{'inc. of all taxes'}</Text>
       </View>
       <View>
-        <TouchableOpacity style={styles.buttonView}>
-          <Text style={styles.buttonText}>Add</Text>
-        </TouchableOpacity>
+        {Item.qty == 0 ? null : (
+          <TouchableOpacity style={[styles.buttonView]}>
+            <Text style={styles.buttonText}>{'Add'}</Text>
+          </TouchableOpacity>
+        )}
+
+        {Item.qty == 0 ? <CountButton /> : null}
       </View>
     </View>
   );
@@ -36,14 +40,13 @@ const Item = ({item}) => {
 
 const ProductItemList = ({DATA}) => {
   const [data, setData] = useState(DATA);
+  // let colors = ['#123456', '#654321', '#fdecba', '#abcdef'];
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={data}
-        renderItem={({item}) => <Item item={item} />}
-        keyExtractor={item => item.id}
-      />
-    </View>
+    <FlatList
+      renderItem={({item}) => <Item item={item} />}
+      data={data}
+      keyExtractor={item => item.id}
+    />
   );
 };
 

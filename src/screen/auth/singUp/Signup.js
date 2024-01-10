@@ -14,7 +14,6 @@ import {colors} from '../../../helper/colors';
 import Header from '../../../components/Header';
 import {commonStyles} from '../../../helper/commonStyle';
 import PrimaryTextInput from '../../../components/common/PrimaryTextInput';
-import {useNavigation} from '@react-navigation/native';
 import {hp, wp} from '../../../helper/helper';
 import Button from '../../../components/common/Button';
 import {icons} from '../../../helper/imageConstans';
@@ -24,8 +23,6 @@ const Signup = ({navigation}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [visible, setVisible] = useState(false);
 
   const registerUser = () => {
@@ -36,7 +33,6 @@ const Signup = ({navigation}) => {
       .set({
         name: name,
         email: email,
-        password: password,
         mobile: mobile,
         userId: userId,
       })
@@ -59,15 +55,7 @@ const Signup = ({navigation}) => {
     if (mobile == '') {
       isValid = false;
     }
-    if (password == '') {
-      isValid = false;
-    }
-    if (confirmPassword == '') {
-      isValid = false;
-    }
-    if (confirmPassword !== password) {
-      isValid = false;
-    }
+
     return isValid;
   };
   return (
@@ -77,7 +65,6 @@ const Signup = ({navigation}) => {
         leftIcon={styles.headerLeftContainer}
         addImage={icons.back}
         title={'Create new Account'}
-        // onPress={() => goBack()}
         drawer={() => navigation.goBack()}
       />
       <View style={{marginHorizontal: wp(16)}}>

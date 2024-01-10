@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -10,8 +10,20 @@ import {
 import {fs, hp, wp} from '../helper/helper';
 import {colors} from '../helper';
 import {icons} from '../helper/imageConstans';
+import CountButton from './common/CountButton';
+import useCartStore from '../zustand/CartStore';
 
 const Item = ({item, onPress, ButtonPress}) => {
+  const [selectedButtons, setSelectedButtons] = useState([]);
+  const {reduceProduct, addProduct} = useCartStore();
+
+  const handleButtonPress = buttonId => {
+    if (selectedButtons.includes(buttonId)) {
+      setSelectedButtons(selectedButtons.filter(id => id !== buttonId));
+    } else {
+      setSelectedButtons([...selectedButtons, buttonId]);
+    }
+  };
   return (
     <TouchableOpacity style={styles.list} onPress={() => onPress()}>
       <View style={styles.listView}>
@@ -22,20 +34,23 @@ const Item = ({item, onPress, ButtonPress}) => {
         <TouchableOpacity>
           <Text style={styles.timeText}>{item?.name}</Text>
         </TouchableOpacity>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          }}>
-          <TouchableOpacity style={{flexDirection: 'row', marginTop: hp(13)}}>
+        <View style={styles.bottomView}>
+          <TouchableOpacity style={{flexDirection: 'row', marginTop: hp(0)}}>
             <Image style={styles.iconView} source={icons.locationDark} />
             <Text>{item?.distance}</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.buttonView}
-            onPress={() => ButtonPress()}>
-            <Text style={styles.buttonText}>Add</Text>
-          </TouchableOpacity>
+          {Item.qty == 0 ? null : (
+            <TouchableOpacity style={[styles.buttonView]}>
+              <Text style={styles.buttonText}>{'Add'}</Text>
+            </TouchableOpacity>
+          )}
+
+          {Item.qty == 0 ? (
+            <CountButton
+              remove={() => reduceProduct(item)}
+              add={() => addProduct(item)}
+            />
+          ) : null}
         </View>
       </View>
     </TouchableOpacity>
@@ -92,12 +107,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 3,
-    marginTop: hp(7),
   },
   buttonText: {
     fontSize: fs(15),
     fontWeight: '700',
     color: colors?.white,
+  },
+  bottomView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: hp(13),
   },
 });
 

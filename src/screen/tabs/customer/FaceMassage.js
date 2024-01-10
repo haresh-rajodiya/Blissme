@@ -19,7 +19,7 @@ import FilterView from '../../../components/common/Filter';
 import TopShopList from '../../../components/TopShopList';
 import {FaceMassageData} from '../../../helper/dummyData';
 
-const FaceMassage = ({}) => {
+const FaceMassage = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <Header
@@ -41,15 +41,19 @@ const FaceMassage = ({}) => {
             />
           </TouchableOpacity>
           <Text style={[commonStyles.HeaderText, {marginLeft: wp(20)}]}>
-            Mong Kok Flower Market
+            {'Mong Kok Flower Market'}
           </Text>
         </View>
         <Swiper />
         <ButtonList />
 
         <FilterView />
-        <Text style={styles.salonHeader}>Face Massage</Text>
-        <TopShopList DATA={FaceMassageData} />
+        <Text style={styles.salonHeader}>{'Face Massage'}</Text>
+        <TopShopList
+          DATA={FaceMassageData}
+          onPress={() => navigation.navigate('SpaDetails')}
+          ButtonPress={() => navigation.navigate('Appointment')}
+        />
       </ScrollView>
     </SafeAreaView>
   );

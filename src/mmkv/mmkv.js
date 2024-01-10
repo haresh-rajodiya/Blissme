@@ -67,9 +67,9 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.keys}>Available Keys: {keys.join(', ')}</Text>
+      <Text style={styles.keys}>{'Available Keys: '}{keys.join(', ')}</Text>
       <View style={styles.row}>
-        <Text style={styles.title}>Key:</Text>
+        <Text style={styles.title}>{'Key:'}</Text>
         <TextInput
           placeholder="Key"
           style={styles.textInput}
@@ -78,7 +78,7 @@ export default function App() {
         />
       </View>
       <View style={styles.row}>
-        <Text style={styles.title}>Value:</Text>
+        <Text style={styles.title}>{'Value:'}</Text>
         <TextInput
           placeholder="Value"
           style={styles.textInput}
@@ -121,3 +121,22 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
+
+// Implement Cart Screen: Create a screen where users can view and interact with the cart.
+// Use the Zustand store to manage the cart state.Integrate MMKV for Storage: Initialize MMKV in your app,
+// and use it to persist the cart state. For example:// App.js
+
+// import React, {useEffect} from 'react';
+// import {MMKV} from 'react-native-mmkv';
+// import {Provider as StoreProvider} from 'use-cart-store'; // Import your Zustand store provider
+// const App = () => {
+//   useEffect(() => {
+//     // Load cart state from MMKV on app start
+//     const storedCart = MMKV.getString('cart');
+//     if (storedCart) {
+//       useCartStore.setState({cart: JSON.parse(storedCart)});
+//     }
+//   }, []);
+//   return <StoreProvider>{/* Your app components */}</StoreProvider>;
+// };
+// export default App;

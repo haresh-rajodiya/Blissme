@@ -318,7 +318,7 @@ const LoginScreen = ({navigation}) => {
           color={colors.black}
         />
         <Text style={[commonStyles.CommonText, styles.signupText]}>
-          - Or sign up with -
+          {'- Or sign up with -'}
         </Text>
         <View style={[styles.signupBtn]}>
           <SignupButton

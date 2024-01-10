@@ -11,7 +11,7 @@ const SelectCategory = ({navigation}) => {
     <SafeAreaView style={styles.container}>
       <Logo style={hp(150)} />
       <Text style={[commonStyles.HeaderText, {marginTop: hp(60)}]}>
-        choose your category
+        {'choose your category'}
       </Text>
       <Button
         onPress={() => navigation.navigate('ClientHome')}

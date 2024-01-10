@@ -95,15 +95,3 @@ const styles = StyleSheet.create({
 });
 
 export default Services;
-
-// firebase
-//   .firestore()
-//   .collection("Users")
-//   .doc("mydoc")
-//   .collection("Activities")
-//   .doc("Database")
-//   .set({
-//     key: "1",
-//     value: "",
-//   })
-//   .then((ref) => { console.log(ref) });

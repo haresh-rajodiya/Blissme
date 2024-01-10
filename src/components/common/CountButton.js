@@ -4,14 +4,14 @@ import {hp, wp} from '../../helper/helper';
 import {commonStyles} from '../../helper/commonStyle';
 import {icons} from '../../helper/imageConstans';
 
-const CountButton = () => {
+const CountButton = ({add, remove}) => {
   return (
     <View style={{flexDirection: 'row'}}>
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity style={styles.container} onPress={remove}>
         <Image style={{width: wp(15), height: hp(2)}} source={icons.remove} />
       </TouchableOpacity>
       <Text style={[commonStyles.HeaderText]}>{' 25 '}</Text>
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity style={styles.container} onPress={add}>
         <Image style={{width: wp(15), height: hp(15)}} source={icons.add} />
       </TouchableOpacity>
     </View>
