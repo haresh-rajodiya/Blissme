@@ -100,14 +100,14 @@ const Signup = ({navigation}) => {
         title={'Create New Account'}
         color={colors.black}
         style={hp(25)}
-        // onPress={() => {
-        //   if (validate()) {
-        //     registerUser();
-        //   } else {
-        //     Alert.alert('Please Enter Correct Data');
-        //   }
-        // }}
-        onPress={() => navigation.navigate('Verification')}
+        onPress={() => {
+          if (validate()) {
+            registerUser();
+          } else {
+            Alert.alert('Please Enter Correct Data');
+          }
+        }}
+        // onPress={() => navigation.navigate('Verification')}
       />
 
       <Text style={[styles.signuptext]}>
@@ -154,6 +154,9 @@ const styles = StyleSheet.create({
 });
 
 export default Signup;
+
+// ========================================================================
+
 // import {
 //   View,
 //   Text,
@@ -161,6 +164,7 @@ export default Signup;
 //   TextInput,
 //   TouchableOpacity,
 //   Alert,
+//   ScrollView,
 // } from 'react-native';
 // import React, {useState} from 'react';
 // import {useNavigation} from '@react-navigation/native';
@@ -190,7 +194,7 @@ export default Signup;
 //       })
 //       .then(res => {
 //         console.log('user created ');
-//         navigation.navigate('Login');
+//         navigation.navigate('LoginScreen');
 //       })
 //       .catch(error => {
 //         console.log(error);
@@ -219,7 +223,7 @@ export default Signup;
 //     return isValid;
 //   };
 //   return (
-//     <View style={styles.container}>
+//     <ScrollView style={styles.container}>
 //       <Text style={styles.title}>Sign Up</Text>
 //       <TextInput
 //         placeholder="Enter Name"
@@ -276,7 +280,7 @@ export default Signup;
 //         }}>
 //         Or Login
 //       </Text>
-//     </View>
+//     </ScrollView>
 //   );
 // };
 

@@ -191,27 +191,58 @@ import {
   GoogleSignin,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
+import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Loader from '../../../components/common/Loader';
 import Logo from '../../../components/Logo';
 import {colors} from '../../../helper/colors';
-import {hp, screenHeight, screenWidth, wp} from '../../../helper/helper';
+import {hp, wp} from '../../../helper/helper';
 import {commonStyles} from '../../../helper/commonStyle';
 import Button from '../../../components/common/Button';
 import SignupButton from '../../../components/SignupButton';
+import {onResponderStart} from 'deprecated-react-native-prop-types/DeprecatedViewPropTypes';
 
 const LoginScreen = ({navigation}) => {
-  const [data, setData] = useState('');
-  const [mobileNo, setMobileNo] = useState('');
+  const [countryCode, setCountryCode] = useState(' + ');
+  // const [data, setData] = useState('');
+  const [mobile, setMobile] = useState('');
   const [otpInput, setOtpInput] = useState('');
   const [confirmData, setConfirmData] = useState('');
   const [userInfo, setUserInfo] = useState('');
   const [visible, setVisible] = useState(false);
   const [email, setEmail] = useState('');
 
-  const [password, setPassword] = useState('');
+  // const [password, setPassword] = useState('');
 
-  // const navigation = useNavigation();
+  const loginUser = () => {
+    setVisible(true);
+    firestore()
+      .collection('users')
+      .where('mobile', '==', mobile)
+      .get()
+      .then(res => {
+        setVisible(false);
+
+        if (res.docs != []) {
+          // console.log(JSON.stringify(res.docs[0].data()));
+
+          goToNext(res.docs[0].data().mobile, res.docs[0].data().userId);
+        } else {
+          Alert.alert('User not found');
+        }
+      })
+      .catch(error => {
+        setVisible(false);
+        console.log(error);
+        Alert.alert('User not found');
+      });
+  };
+  const goToNext = async (mobile, userId) => {
+    await AsyncStorage.setItem('mobile', mobile);
+    await AsyncStorage.setItem('USERID', userId);
+
+    navigation.navigate('Verification');
+  };
 
   useEffect(() => {
     GoogleSignin.configure({
@@ -235,25 +266,26 @@ const LoginScreen = ({navigation}) => {
     }
   };
 
-  signOut = async () => {
-    try {
-      await GoogleSignin.signOut();
-      setUserInfo(null);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  // const sendDotp = async () => {
+  // signOut = async () => {
   //   try {
-  //     const mobile = '+91' + mobileNo;
-  //     const response = await auth().signInWithPhoneNumber(mobile);
-  //     setConfirmData(response);
-  //     alert('otp is send please verify it...');
-  //     console.log(response);
+  //     await GoogleSignin.signOut();
+  //     setUserInfo(null);
   //   } catch (error) {
-  //     console.log(error);
+  //     console.error(error);
   //   }
   // };
+  const sendOtp = async () => {
+    try {
+      const mobile = '+91' + mobile;
+      const response = await auth().signInWithPhoneNumber(mobile);
+      setConfirmData(response);
+      alert('otp is send please verify it...');
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   // const submitotp = async () => {
   //   const response = await confirmData.confirm(otpInput);
   //   console.log(response);
@@ -264,27 +296,27 @@ const LoginScreen = ({navigation}) => {
   //   }
   // };
 
-  // const handleEmailPhone = email => {
-  //   setEmail(email);
-  //   setIsMob(/[a-z]/i.test(email));
+  const handleEmailPhone = email => {
+    setEmail(email);
+    setIsMob(/[a-z]/i.test(email));
 
-  //   var regExp = /[a-zA-Z]/g;
-  //   var testString = 'john';
+    var regExp = /[a-zA-Z]/g;
+    var testString = 'john';
 
-  //   if (regExp.test(testString)) {
-  //     /* do something if letters are found in your string */
-  //   } else {
-  //     /* do something if letters are not found in your string */
-  //   }
-  //   // let mob = /^[0-9]{10}$/;
+    if (regExp.test(testString)) {
+      /* do something if letters are found in your string */
+    } else {
+      /* do something if letters are not found in your string */
+    }
+    // let mob = /^[0-9]{10}$/;
 
-  //   // if (mob.test(email)) {
-  //   //   setIsMob(true);
-  //   // }
-  // };
-  // // function handleEmailPhone1(myString) {
-  // //   return /\d/.test(myString);
-  // // }
+    // if (mob.test(email)) {
+    //   setIsMob(true);
+    // }
+  };
+  // function handleEmailPhone1(myString) {
+  //   return /\d/.test(myString);
+  // }
   // console.log('====================================');
   // console.log('screenWidth', hp(16), screenHeight);
   // console.log('====================================');
@@ -297,22 +329,26 @@ const LoginScreen = ({navigation}) => {
         <View style={{flexDirection: 'row', paddingHorizontal: wp(16)}}>
           <TextInput
             style={[styles.countryInput]}
-            value={data}
+            value={countryCode}
+            keyboardType="numeric"
             onChangeText={e => {
-              setData(e);
+              setCountryCode(e);
             }}
           />
           <TextInput
             style={[styles.mobileInput]}
-            value={data}
+            value={mobile}
             keyboardType="numeric"
             onChangeText={e => {
-              setData(e);
+              setMobile(e);
             }}
           />
         </View>
         <Button
-          onPress={() => sendotp()}
+          // onPress={() => sendOtp()}
+          onPress={() => {
+            loginUser();
+          }}
           title={'Continue'}
           style={hp(40)}
           color={colors.black}

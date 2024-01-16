@@ -57,7 +57,7 @@ const Item = ({item, onPress, ButtonPress}) => {
   );
 };
 
-const OurProductList = ({DATA, onPress, ButtonPress}) => {
+const   OurProductList = ({DATA, onPress, ButtonPress}) => {
   const [data, setData] = useState(DATA);
   return (
     <View style={styles.container}>

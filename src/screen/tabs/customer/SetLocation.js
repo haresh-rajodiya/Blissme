@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   ScrollView,
 } from 'react-native';
+import MapView from 'react-native-maps';
 import {fs, hp, wp} from '../../../helper/helper';
 import {commonStyles} from '../../../helper/commonStyle';
 import {icons} from '../../../helper/imageConstans';
@@ -27,9 +28,18 @@ const SetLocation = ({navigation}) => {
           title={'Set your location'}
         />
 
-        <Image
+        {/* <Image
           style={{marginTop: hp(30), height: hp(292), width: '100%'}}
           source={icons.map}
+        /> */}
+        <MapView
+          style={{marginTop: hp(30), height: hp(292), width: '100%'}}
+          initialRegion={{
+            latitude: 37.78825,
+            longitude: -122.4324,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
         />
         <Text
           style={[
@@ -87,6 +97,10 @@ const styles = StyleSheet.create({
     marginTop: hp(10),
     fontSize: fs(20),
     paddingHorizontal: wp(15),
+  },
+  map: {
+    height: 400,
+    marginTop: 80,
   },
 });
 
